@@ -1,2 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /admin
+
+Sitemap: https://pawbulance.com/sitemap.xml

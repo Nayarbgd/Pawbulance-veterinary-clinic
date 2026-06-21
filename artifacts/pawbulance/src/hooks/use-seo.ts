@@ -7,6 +7,7 @@ interface SEOProps {
   ogImage?: string;
   ogType?: string;
   noIndex?: boolean;
+  schema?: object | object[];
 }
 
 function setMeta(name: string, content: string, attr: "name" | "property" = "name") {
@@ -29,7 +30,28 @@ function setLink(rel: string, href: string) {
   el.href = href;
 }
 
-export function useSEO({ title, description, canonical, ogImage, ogType = "website", noIndex = false }: SEOProps) {
+function injectSchema(schema: object | object[]) {
+  const schemas = Array.isArray(schema) ? schema : [schema];
+  const existing = document.querySelectorAll('script[data-schema="true"]');
+  existing.forEach((el) => el.remove());
+  schemas.forEach((s) => {
+    const script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.setAttribute("data-schema", "true");
+    script.textContent = JSON.stringify(s);
+    document.head.appendChild(script);
+  });
+}
+
+export function useSEO({
+  title,
+  description,
+  canonical,
+  ogImage,
+  ogType = "website",
+  noIndex = false,
+  schema,
+}: SEOProps) {
   useEffect(() => {
     const base = "https://pawbulance.com";
     const url = canonical ? `${base}${canonical}` : base + window.location.pathname;
@@ -38,7 +60,7 @@ export function useSEO({ title, description, canonical, ogImage, ogType = "websi
     document.title = title;
 
     setMeta("description", description);
-    setMeta("robots", noIndex ? "noindex,nofollow" : "index,follow");
+    setMeta("robots", noIndex ? "noindex,nofollow" : "index,follow,max-image-preview:large,max-snippet:-1");
 
     setMeta("og:title", title, "property");
     setMeta("og:description", description, "property");
@@ -46,6 +68,7 @@ export function useSEO({ title, description, canonical, ogImage, ogType = "websi
     setMeta("og:type", ogType, "property");
     setMeta("og:image", image, "property");
     setMeta("og:site_name", "Pawbulance Veterinary Clinic Dubai", "property");
+    setMeta("og:locale", "en_AE", "property");
 
     setMeta("twitter:card", "summary_large_image", "name");
     setMeta("twitter:title", title, "name");
@@ -53,5 +76,9 @@ export function useSEO({ title, description, canonical, ogImage, ogType = "websi
     setMeta("twitter:image", image, "name");
 
     setLink("canonical", url);
-  }, [title, description, canonical, ogImage, ogType, noIndex]);
+
+    if (schema) {
+      injectSchema(schema);
+    }
+  }, [title, description, canonical, ogImage, ogType, noIndex, schema]);
 }

@@ -6,6 +6,7 @@ import { ArrowRight, Star, Shield, Clock, MapPin, Phone, Heart, CheckCircle, Car
 import { motion } from "framer-motion";
 import { AppointmentDialog } from "@/components/forms/appointment-dialog";
 import { PetTaxiDialog } from "@/components/forms/pet-taxi-dialog";
+import { getLocalBusinessSchema, getAggregateRatingSchema } from "@/lib/schema";
 
 const fadeUp = {
   initial: { opacity: 0, y: 24 },
@@ -19,6 +20,7 @@ export default function Home() {
     title: "Pawbulance Veterinary Clinic Dubai | JBR | 4.8★",
     description: "Premium veterinary care in JBR, Dubai. Female-owned clinic offering consultations, surgery, dental care, pet taxi and more. Book online today.",
     canonical: "/",
+    schema: [getLocalBusinessSchema(), getAggregateRatingSchema()],
   });
 
   return (

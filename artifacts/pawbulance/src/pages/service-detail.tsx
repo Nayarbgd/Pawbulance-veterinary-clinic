@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { AppointmentDialog } from "@/components/forms/appointment-dialog";
 import { getServiceBySlug } from "@/data/services";
 import { useSEO } from "@/hooks/use-seo";
+import { getFAQSchema, getBreadcrumbSchema, getServiceSchema } from "@/lib/schema";
 
 const fadeUp = {
   initial: { opacity: 0, y: 24 },
@@ -22,6 +23,17 @@ export default function ServiceDetail() {
     title: service?.metaTitle ?? "Veterinary Service | Pawbulance Dubai",
     description: service?.metaDescription ?? "Expert veterinary care in JBR, Dubai.",
     canonical: service ? `/services/${service.slug}` : "/services",
+    schema: service
+      ? [
+          getFAQSchema(service.faqs),
+          getBreadcrumbSchema([
+            { name: "Home", url: "/" },
+            { name: "Services", url: "/services" },
+            { name: service.title, url: `/services/${service.slug}` },
+          ]),
+          getServiceSchema(service),
+        ]
+      : undefined,
   });
 
   if (!service) {
