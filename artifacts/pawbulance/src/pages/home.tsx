@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import { MainLayout } from "@/components/layout/main-layout";
 import { useSEO } from "@/hooks/use-seo";
 import { Button } from "@/components/ui/button";
@@ -7,6 +8,7 @@ import { motion } from "framer-motion";
 import { AppointmentDialog } from "@/components/forms/appointment-dialog";
 import { PetTaxiDialog } from "@/components/forms/pet-taxi-dialog";
 import { getLocalBusinessSchema, getAggregateRatingSchema } from "@/lib/schema";
+import { usePawTrail } from "@/hooks/use-paw-trail";
 
 const fadeUp = {
   initial: { opacity: 0, y: 24 },
@@ -23,8 +25,14 @@ export default function Home() {
     schema: [getLocalBusinessSchema(), getAggregateRatingSchema()],
   });
 
+  const heroRef = useRef<HTMLDivElement>(null);
+  usePawTrail(heroRef);
+
   return (
     <MainLayout>
+
+      {/* ── HERO WRAPPER — paw trail effect targets this on desktop ── */}
+      <div ref={heroRef} className="relative">
 
       {/* ── HERO MOBILE (text on top of image, like desktop) ── */}
       <section className="md:hidden relative overflow-hidden" style={{ minHeight: "85vh" }}>
@@ -116,6 +124,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      </div>{/* end heroRef wrapper */}
 
       {/* ── TRUST STATS STRIP ── */}
       <section className="bg-white border-y border-slate-100 py-8">

@@ -1,0 +1,23 @@
+Add a paw-print cursor trail effect to the website's hero section (desktop only, disable on mobile/touch devices). Performance is critical — must run perfectly smooth, no jank.
+
+PERFORMANCE REQUIREMENTS (non-negotiable)
+- Use an object pool: pre-create a fixed set of 8 paw-print DOM elements once on load. NEVER create or destroy DOM elements during mousemove — only reuse and reposition the pooled elements. Creating/destroying elements on every mouse movement is what causes lag.
+- Throttle position updates with requestAnimationFrame — store the latest mouse coordinates on every mousemove event, but only process/render once per animation frame, not once per event.
+- Use squared distance (avoid Math.sqrt) when checking if the cursor moved far enough to spawn a new paw.
+- Use CSS transform (translate + rotate + scaleX) for positioning, never top/left — transform is GPU-accelerated.
+- Add will-change: transform, opacity to the paw elements.
+- Add { passive: true } to the mousemove and mouseleave event listeners.
+- Disable this entire effect on touch devices / mobile breakpoints — check for touch support or screen width and skip initializing the effect entirely if mobile.
+
+BEHAVIOR
+- As the cursor moves, a paw print appears every ~30px of movement (not continuously) — looks like footsteps, not a solid trail.
+- Each paw appears instantly at ~0.85 opacity, then fades to 0 over about 1.8 seconds using a CSS opacity transition.
+- Paws alternate left/right orientation (scaleX(1) / scaleX(-1)) like real footsteps.
+- Rotate each paw to match the direction of movement (atan2 of the delta between current and previous point).
+
+VISUAL STYLE
+- Small paw icon ~18px: one oval pad + four small toe ovals, simple flat shape, no detail/shading.
+- Soft muted color matching the site's secondary text color or brand palette, low-key and subtle, not harsh black.
+- pointer-events: none on every paw element so clicks and hovers on real content are never blocked.
+
+Apply only to the hero section of the veterinary clinic website, desktop viewports only.
