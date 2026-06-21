@@ -22,49 +22,50 @@ export default function Home() {
   return (
     <MainLayout>
 
-      {/* ── HERO MOBILE (stacked: image top, text below) ── */}
-      <section className="md:hidden bg-white">
-        <div className="h-[60px]" />
-        {/* Full-width image — 56vw height shows the full landscape photo without side-cropping */}
-        <div className="w-full overflow-hidden" style={{ height: "56vw", minHeight: 210 }}>
-          <img
-            src="/hero-vet.png"
-            alt="Equipo Pawbulance Dubai"
-            className="w-full h-full object-cover object-center"
-          />
-        </div>
-        {/* Text below the image */}
-        <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45 }}
-          className="px-5 pt-7 pb-10 bg-white"
-        >
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-50 border border-blue-100 text-slate-700 mb-5">
-            <Star className="w-3.5 h-3.5 fill-[#3BA9F5] text-[#3BA9F5]" />
-            <span className="text-xs font-medium">4.8★ Top Rated Vet Clinic in JBR</span>
-          </div>
-          <h1 className="text-4xl font-serif font-extrabold leading-tight mb-4 text-[#1F2937]">
-            Premium care<br />for your{" "}
-            <span className="text-[#3BA9F5]">best friend</span>
-          </h1>
-          <p className="text-base text-[#4B5563] mb-6 leading-relaxed">
-            A modern veterinary clinic in the heart of JBR, bringing warmth, expertise, and love to veterinary medicine.
-          </p>
-          <div className="flex flex-col gap-3">
-            <AppointmentDialog>
-              <Button size="lg" className="h-12 text-base bg-[#3BA9F5] hover:bg-[#2D96E5] text-white rounded-full shadow-md font-semibold w-full">
-                Book Appointment
-              </Button>
-            </AppointmentDialog>
-            <Button size="lg" variant="outline" className="h-12 text-base border-2 border-[#3BA9F5] text-[#3BA9F5] rounded-full font-semibold w-full" asChild>
-              <a href="https://wa.me/971547371109">WhatsApp Us</a>
-            </Button>
-          </div>
-          <div className="flex items-center gap-2 mt-5">
-            <div className="flex gap-0.5">
-              {[1,2,3,4,5].map(s => <Star key={s} className="w-3.5 h-3.5 fill-yellow-400 text-yellow-400" />)}
+      {/* ── HERO MOBILE (text on top of image, like desktop) ── */}
+      <section className="md:hidden relative overflow-hidden" style={{ minHeight: "85vh" }}>
+        <img
+          src="/hero-vet.png"
+          alt="Pawbulance veterinary clinic Dubai"
+          className="absolute inset-0 w-full h-full object-cover z-0"
+          style={{ objectPosition: "70% center" }}
+        />
+        {/* Left-to-right gradient so text is readable, subjects visible on right */}
+        <div
+          className="absolute inset-0 z-10"
+          style={{ background: "linear-gradient(90deg, rgba(255,255,255,0.82) 0%, rgba(255,255,255,0.55) 50%, rgba(255,255,255,0.10) 100%)" }}
+        />
+        <div className="relative z-20 flex flex-col justify-center h-full px-5 pt-28 pb-12">
+          <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45 }}>
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/80 border border-slate-100 text-slate-700 mb-5 shadow-sm">
+              <Star className="w-3.5 h-3.5 fill-[#3BA9F5] text-[#3BA9F5]" />
+              <span className="text-xs font-medium">4.8★ Top Rated Vet Clinic in JBR</span>
             </div>
-            <span className="text-xs text-[#4B5563] font-medium">131+ happy clients · JBR, Dubai</span>
-          </div>
-        </motion.div>
+            <h1 className="text-4xl font-serif font-extrabold leading-tight mb-4 text-[#1F2937]">
+              Premium care<br />for your{" "}
+              <span className="text-[#3BA9F5]">best friend</span>
+            </h1>
+            <p className="text-base text-[#4B5563] mb-6 leading-relaxed max-w-[260px]">
+              A modern veterinary clinic in the heart of JBR, bringing warmth, expertise, and love to veterinary medicine.
+            </p>
+            <div className="flex flex-col gap-3">
+              <AppointmentDialog>
+                <Button size="lg" className="h-12 text-base bg-[#3BA9F5] hover:bg-[#2D96E5] text-white rounded-full shadow-md font-semibold w-full">
+                  Book Appointment
+                </Button>
+              </AppointmentDialog>
+              <Button size="lg" variant="outline" className="h-12 text-base border-2 border-[#3BA9F5] text-[#3BA9F5] bg-white/70 rounded-full font-semibold w-full" asChild>
+                <a href="https://wa.me/971547371109">WhatsApp Us</a>
+              </Button>
+            </div>
+            <div className="flex items-center gap-2 mt-5">
+              <div className="flex gap-0.5">
+                {[1,2,3,4,5].map(s => <Star key={s} className="w-3.5 h-3.5 fill-yellow-400 text-yellow-400" />)}
+              </div>
+              <span className="text-xs text-[#4B5563] font-medium">131+ happy clients · JBR, Dubai</span>
+            </div>
+          </motion.div>
+        </div>
       </section>
 
       {/* ── HERO DESKTOP (full-bleed overlay) ── */}
