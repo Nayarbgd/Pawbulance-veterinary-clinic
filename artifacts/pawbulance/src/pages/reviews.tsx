@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useSEO } from "@/hooks/use-seo";
 import { MainLayout } from "@/components/layout/main-layout";
 import { motion } from "framer-motion";
 import { Star, Quote } from "lucide-react";
@@ -6,9 +6,11 @@ import { Button } from "@/components/ui/button";
 import { AppointmentDialog } from "@/components/forms/appointment-dialog";
 
 export default function Reviews() {
-  useEffect(() => {
-    document.title = "Reviews | Pawbulance Veterinary Clinic Dubai";
-  }, []);
+  useSEO({
+    title: "Reviews | Pawbulance Veterinary Clinic Dubai",
+    description: "See what pet owners in Dubai are saying about Pawbulance. 4.8★ rated vet clinic in JBR with 131+ happy clients.",
+    canonical: "/reviews",
+  });
 
   const testimonials = [
     {

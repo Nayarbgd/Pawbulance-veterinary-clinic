@@ -1,3 +1,4 @@
+import { lazy, Suspense } from "react";
 import { Switch, Route, Router as WouterRouter, useLocation } from "wouter";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
@@ -5,17 +6,17 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { FloatingWhatsApp } from "@/components/layout/floating-whatsapp";
-import NotFound from "@/pages/not-found";
 
-import Home from "@/pages/home";
-import Services from "@/pages/services";
-import ServiceDetail from "@/pages/service-detail";
-import PetTaxi from "@/pages/pet-taxi";
-import About from "@/pages/about";
-import Reviews from "@/pages/reviews";
-import Contact from "@/pages/contact";
-import Emergency from "@/pages/emergency";
-import Admin from "@/pages/admin";
+const Home         = lazy(() => import("@/pages/home"));
+const Services     = lazy(() => import("@/pages/services"));
+const ServiceDetail= lazy(() => import("@/pages/service-detail"));
+const PetTaxi      = lazy(() => import("@/pages/pet-taxi"));
+const About        = lazy(() => import("@/pages/about"));
+const Reviews      = lazy(() => import("@/pages/reviews"));
+const Contact      = lazy(() => import("@/pages/contact"));
+const Emergency    = lazy(() => import("@/pages/emergency"));
+const Admin        = lazy(() => import("@/pages/admin"));
+const NotFound     = lazy(() => import("@/pages/not-found"));
 
 const queryClient = new QueryClient();
 
@@ -52,18 +53,20 @@ function AnimatedRoutes() {
         transition={pageTransition}
         style={{ minHeight: "100vh" }}
       >
-        <Switch>
-          <Route path="/" component={Home} />
-          <Route path="/services" component={Services} />
-          <Route path="/services/:slug" component={ServiceDetail} />
-          <Route path="/pet-taxi" component={PetTaxi} />
-          <Route path="/about" component={About} />
-          <Route path="/reviews" component={Reviews} />
-          <Route path="/contact" component={Contact} />
-          <Route path="/emergency" component={Emergency} />
-          <Route path="/admin" component={Admin} />
-          <Route component={NotFound} />
-        </Switch>
+        <Suspense fallback={<div className="min-h-screen" />}>
+          <Switch>
+            <Route path="/" component={Home} />
+            <Route path="/services" component={Services} />
+            <Route path="/services/:slug" component={ServiceDetail} />
+            <Route path="/pet-taxi" component={PetTaxi} />
+            <Route path="/about" component={About} />
+            <Route path="/reviews" component={Reviews} />
+            <Route path="/contact" component={Contact} />
+            <Route path="/emergency" component={Emergency} />
+            <Route path="/admin" component={Admin} />
+            <Route component={NotFound} />
+          </Switch>
+        </Suspense>
       </motion.div>
     </AnimatePresence>
   );
@@ -86,7 +89,6 @@ function App() {
           <Router />
         </WouterRouter>
         <Toaster />
-        {/* FloatingWhatsApp lives outside AnimatePresence so it never disappears */}
         <FloatingWhatsApp />
       </TooltipProvider>
     </QueryClientProvider>

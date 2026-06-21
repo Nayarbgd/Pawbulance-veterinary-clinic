@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useSEO } from "@/hooks/use-seo";
 import { Link } from "wouter";
 import { MainLayout } from "@/components/layout/main-layout";
 import { AppointmentDialog } from "@/components/forms/appointment-dialog";
@@ -7,9 +7,11 @@ import { motion } from "framer-motion";
 import { ArrowRight, Stethoscope, Syringe, Scissors, ShieldCheck, HeartPulse, Activity, FileText, Car } from "lucide-react";
 
 export default function Services() {
-  useEffect(() => {
-    document.title = "Veterinary Services Dubai | Vet JBR | Pawbulance";
-  }, []);
+  useSEO({
+    title: "Veterinary Services Dubai | Vet JBR | Pawbulance",
+    description: "Full range of vet services in JBR Dubai: consultations, vaccinations, dental, surgery, grooming, diagnostics and more. Book your pet's visit today.",
+    canonical: "/services",
+  });
 
   const services = [
     {

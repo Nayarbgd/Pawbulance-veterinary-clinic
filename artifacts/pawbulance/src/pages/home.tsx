@@ -1,5 +1,5 @@
-import { useEffect } from "react";
 import { MainLayout } from "@/components/layout/main-layout";
+import { useSEO } from "@/hooks/use-seo";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { ArrowRight, Star, Shield, Clock, MapPin, Phone, Heart, CheckCircle, Car, Calendar, Stethoscope, Award, Users, Syringe, Scissors, AlertTriangle } from "lucide-react";
@@ -15,9 +15,11 @@ const fadeUp = {
 };
 
 export default function Home() {
-  useEffect(() => {
-    document.title = "Pawbulance Veterinary Clinic Dubai | JBR | 4.8★";
-  }, []);
+  useSEO({
+    title: "Pawbulance Veterinary Clinic Dubai | JBR | 4.8★",
+    description: "Premium veterinary care in JBR, Dubai. Female-owned clinic offering consultations, surgery, dental care, pet taxi and more. Book online today.",
+    canonical: "/",
+  });
 
   return (
     <MainLayout>

@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useSEO } from "@/hooks/use-seo";
 import { MainLayout } from "@/components/layout/main-layout";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import { useForm } from "react-hook-form";
@@ -21,9 +21,11 @@ const formSchema = z.object({
 });
 
 export default function Contact() {
-  useEffect(() => {
-    document.title = "Contact Pawbulance | Vet Clinic JBR Dubai";
-  }, []);
+  useSEO({
+    title: "Contact Pawbulance | Vet Clinic JBR Dubai",
+    description: "Get in touch with Pawbulance Veterinary Clinic in JBR, Dubai. Call, WhatsApp or fill out our contact form to book an appointment.",
+    canonical: "/contact",
+  });
 
   const { toast } = useToast();
   const submitContact = useSubmitContact();

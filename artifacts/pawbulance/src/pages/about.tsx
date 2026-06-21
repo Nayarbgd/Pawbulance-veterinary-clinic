@@ -1,12 +1,14 @@
-import { useEffect } from "react";
 import { MainLayout } from "@/components/layout/main-layout";
+import { useSEO } from "@/hooks/use-seo";
 import { motion } from "framer-motion";
 import { Heart, Star, Users, MapPin } from "lucide-react";
 
 export default function About() {
-  useEffect(() => {
-    document.title = "About Pawbulance | Female-Owned Vet Clinic Dubai";
-  }, []);
+  useSEO({
+    title: "About Pawbulance | Female-Owned Vet Clinic Dubai",
+    description: "Learn about Pawbulance, a female-owned veterinary clinic in JBR, Dubai, delivering compassionate, expert care for your pets.",
+    canonical: "/about",
+  });
 
   return (
     <MainLayout>

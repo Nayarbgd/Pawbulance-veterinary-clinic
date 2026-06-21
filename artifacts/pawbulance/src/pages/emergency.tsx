@@ -1,12 +1,14 @@
-import { useEffect } from "react";
+import { useSEO } from "@/hooks/use-seo";
 import { MainLayout } from "@/components/layout/main-layout";
 import { AlertCircle, Phone, Clock, Navigation } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default function Emergency() {
-  useEffect(() => {
-    document.title = "Emergency Vet Dubai | 24/7 Pet Emergency | Pawbulance";
-  }, []);
+  useSEO({
+    title: "Emergency Vet Dubai | 24/7 Pet Emergency | Pawbulance",
+    description: "24/7 emergency veterinary care for pets in Dubai. Call Pawbulance now for urgent pet care in JBR and surrounding areas.",
+    canonical: "/emergency",
+  });
 
   return (
     <MainLayout>

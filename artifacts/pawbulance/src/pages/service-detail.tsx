@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { useParams, Link } from "wouter";
 import { MainLayout } from "@/components/layout/main-layout";
 import { Button } from "@/components/ui/button";
@@ -6,6 +5,7 @@ import { CheckCircle, ChevronRight, Phone, Star } from "lucide-react";
 import { motion } from "framer-motion";
 import { AppointmentDialog } from "@/components/forms/appointment-dialog";
 import { getServiceBySlug } from "@/data/services";
+import { useSEO } from "@/hooks/use-seo";
 
 const fadeUp = {
   initial: { opacity: 0, y: 24 },
@@ -18,28 +18,11 @@ export default function ServiceDetail() {
   const params = useParams<{ slug: string }>();
   const service = getServiceBySlug(params.slug ?? "");
 
-  useEffect(() => {
-    if (service) {
-      document.title = service.metaTitle;
-      // Update meta description
-      let meta = document.querySelector('meta[name="description"]');
-      if (!meta) {
-        meta = document.createElement("meta");
-        meta.setAttribute("name", "description");
-        document.head.appendChild(meta);
-      }
-      meta.setAttribute("content", service.metaDescription);
-
-      // Keywords
-      let kw = document.querySelector('meta[name="keywords"]');
-      if (!kw) {
-        kw = document.createElement("meta");
-        kw.setAttribute("name", "keywords");
-        document.head.appendChild(kw);
-      }
-      kw.setAttribute("content", service.keywords);
-    }
-  }, [service]);
+  useSEO({
+    title: service?.metaTitle ?? "Veterinary Service | Pawbulance Dubai",
+    description: service?.metaDescription ?? "Expert veterinary care in JBR, Dubai.",
+    canonical: service ? `/services/${service.slug}` : "/services",
+  });
 
   if (!service) {
     return (

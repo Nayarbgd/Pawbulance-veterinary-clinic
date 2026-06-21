@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useSEO } from "@/hooks/use-seo";
 import { MainLayout } from "@/components/layout/main-layout";
 import { PetTaxiDialog } from "@/components/forms/pet-taxi-dialog";
 import { Button } from "@/components/ui/button";
@@ -6,9 +6,11 @@ import { motion } from "framer-motion";
 import { MapPin, ShieldCheck, Clock, Navigation } from "lucide-react";
 
 export default function PetTaxi() {
-  useEffect(() => {
-    document.title = "Pet Taxi Dubai | Pet Transport JBR | Pawbulance";
-  }, []);
+  useSEO({
+    title: "Pet Taxi Dubai | Pet Transport JBR | Pawbulance",
+    description: "Safe, stress-free pet transport in Dubai. Pawbulance's pet taxi service picks up and drops off your pet to and from the clinic.",
+    canonical: "/pet-taxi",
+  });
 
   return (
     <MainLayout>
