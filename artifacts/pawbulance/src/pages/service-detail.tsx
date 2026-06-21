@@ -73,24 +73,24 @@ export default function ServiceDetail() {
       </div>
 
       {/* Hero */}
-      <section className="bg-gradient-to-b from-[#F7FBFF] to-white py-20">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <section className="bg-gradient-to-b from-[#F7FBFF] to-white py-12 md:py-20">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 border border-blue-100 text-[#3BA9F5] text-sm font-semibold mb-6">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-50 border border-blue-100 text-[#3BA9F5] text-xs sm:text-sm font-semibold mb-5">
                 Pawbulance · JBR, Dubai
               </div>
-              <h1 className="text-4xl md:text-5xl font-bold text-[#1F2937] leading-tight mb-6">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#1F2937] leading-tight mb-5">
                 {service.heroHeading}
               </h1>
-              <p className="text-lg text-[#64748B] leading-relaxed mb-8">{service.heroSub}</p>
-              <div className="flex flex-col sm:flex-row gap-4">
+              <p className="text-base sm:text-lg text-[#64748B] leading-relaxed mb-6">{service.heroSub}</p>
+              <div className="flex flex-col sm:flex-row gap-3">
                 <AppointmentDialog>
-                  <Button size="lg" className="h-14 px-8 text-lg bg-[#3BA9F5] hover:bg-[#2D96E5] text-white rounded-full shadow-md font-semibold">
+                  <Button size="lg" className="h-12 sm:h-14 px-6 sm:px-8 text-base sm:text-lg bg-[#3BA9F5] hover:bg-[#2D96E5] text-white rounded-full shadow-md font-semibold">
                     Book Appointment
                   </Button>
                 </AppointmentDialog>
-                <a href="https://wa.me/971547371109" className="inline-flex items-center justify-center h-14 px-8 text-lg border-2 border-[#3BA9F5] text-[#3BA9F5] rounded-full hover:bg-blue-50 font-semibold transition-all">
+                <a href="https://wa.me/971547371109" className="inline-flex items-center justify-center h-12 sm:h-14 px-6 sm:px-8 text-base sm:text-lg border-2 border-[#3BA9F5] text-[#3BA9F5] rounded-full hover:bg-blue-50 font-semibold transition-all">
                   WhatsApp Us
                 </a>
               </div>
@@ -111,8 +111,8 @@ export default function ServiceDetail() {
       </section>
 
       {/* Why Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4 max-w-4xl">
+      <section className="py-12 md:py-20 bg-white">
+        <div className="container mx-auto px-4 sm:px-6 max-w-4xl">
           <motion.div {...fadeUp}>
             <h2 className="text-3xl md:text-4xl font-bold text-[#1F2937] mb-8">{service.whySection.heading}</h2>
             <div className="space-y-5">
@@ -125,8 +125,8 @@ export default function ServiceDetail() {
       </section>
 
       {/* Benefits */}
-      <section className="py-20 bg-[#F7FBFF]">
-        <div className="container mx-auto px-4">
+      <section className="py-12 md:py-20 bg-[#F7FBFF]">
+        <div className="container mx-auto px-4 sm:px-6">
           <motion.div {...fadeUp} className="text-center mb-12">
             <h2 className="text-3xl font-bold text-[#1F2937] mb-3">What You and Your Pet Get</h2>
             <p className="text-[#64748B] text-lg max-w-xl mx-auto">Every visit to Pawbulance is designed to deliver measurable value for your pet's health.</p>
@@ -146,8 +146,8 @@ export default function ServiceDetail() {
       </section>
 
       {/* Process */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
+      <section className="py-12 md:py-20 bg-white">
+        <div className="container mx-auto px-4 sm:px-6">
           <motion.div {...fadeUp} className="text-center mb-12">
             <h2 className="text-3xl font-bold text-[#1F2937] mb-3">How It Works</h2>
             <p className="text-[#64748B] text-lg max-w-xl mx-auto">A clear, simple process from booking to recovery — we make it easy for you and comfortable for your pet.</p>
@@ -168,8 +168,8 @@ export default function ServiceDetail() {
       </section>
 
       {/* FAQs */}
-      <section className="py-20 bg-[#F7FBFF]">
-        <div className="container mx-auto px-4 max-w-3xl">
+      <section className="py-12 md:py-20 bg-[#F7FBFF]">
+        <div className="container mx-auto px-4 sm:px-6 max-w-3xl">
           <motion.div {...fadeUp} className="text-center mb-12">
             <h2 className="text-3xl font-bold text-[#1F2937] mb-3">Frequently Asked Questions</h2>
             <p className="text-[#64748B] text-lg">Everything you need to know about {service.title.toLowerCase()} at Pawbulance.</p>
@@ -188,16 +188,16 @@ export default function ServiceDetail() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-gradient-to-r from-[#3BA9F5] to-[#6CC7FF]">
-        <div className="container mx-auto px-4 text-center">
+      <section className="py-12 md:py-20 bg-gradient-to-r from-[#3BA9F5] to-[#6CC7FF]">
+        <div className="container mx-auto px-4 sm:px-6 text-center">
           <motion.div {...fadeUp}>
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            <h2 className="text-2xl md:text-4xl font-bold text-white mb-4">
               Ready to book {service.title.toLowerCase()} for your pet?
             </h2>
-            <p className="text-blue-50 text-lg mb-10 max-w-xl mx-auto">
+            <p className="text-blue-50 text-base md:text-lg mb-8 max-w-xl mx-auto">
               Our team at Pawbulance JBR is ready to help. Book online or reach us instantly on WhatsApp.
             </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
               <AppointmentDialog>
                 <Button size="lg" className="h-14 px-8 text-lg bg-white text-[#3BA9F5] hover:bg-blue-50 rounded-full font-bold shadow-lg">
                   Book Appointment

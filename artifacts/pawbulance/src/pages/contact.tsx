@@ -60,9 +60,9 @@ export default function Contact() {
 
   return (
     <MainLayout>
-      <div className="bg-white container mx-auto px-4 py-24">
-        <div className="max-w-3xl mx-auto text-center mb-20">
-          <h1 className="text-4xl md:text-5xl font-serif font-extrabold mb-6 text-[#1F2937]">Get in Touch</h1>
+      <div className="bg-white container mx-auto px-4 sm:px-6 py-14 md:py-24">
+        <div className="max-w-3xl mx-auto text-center mb-12 md:mb-20">
+          <h1 className="text-3xl md:text-5xl font-serif font-extrabold mb-4 text-[#1F2937]">Get in Touch</h1>
           <p className="text-lg text-[#64748B]">
             Have a question or want to schedule a visit? We're here to help. Reach out to us via phone, WhatsApp, or the form below.
           </p>
@@ -71,8 +71,8 @@ export default function Contact() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
           {/* Contact Info */}
           <div className="space-y-8">
-            <div className="bg-white shadow-sm border border-slate-100 p-10 rounded-[2rem]">
-              <h2 className="font-serif text-2xl font-bold mb-8 text-[#1F2937]">Contact Information</h2>
+            <div className="bg-white shadow-sm border border-slate-100 p-6 md:p-10 rounded-2xl md:rounded-[2rem]">
+              <h2 className="font-serif text-2xl font-bold mb-6 text-[#1F2937]">Contact Information</h2>
               <div className="space-y-8">
                 <div className="flex items-start gap-5">
                   <div className="w-14 h-14 rounded-2xl bg-blue-50 flex items-center justify-center shrink-0">
@@ -131,8 +131,8 @@ export default function Contact() {
           </div>
 
           {/* Contact Form */}
-          <div className="bg-white shadow-sm border border-slate-100 p-10 rounded-[2rem] h-fit">
-            <h2 className="font-serif text-2xl font-bold mb-8 text-[#1F2937]">Send us a message</h2>
+          <div className="bg-white shadow-sm border border-slate-100 p-6 md:p-10 rounded-2xl md:rounded-[2rem] h-fit">
+            <h2 className="font-serif text-2xl font-bold mb-6 text-[#1F2937]">Send us a message</h2>
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                 <FormField
@@ -149,7 +149,7 @@ export default function Contact() {
                   )}
                 />
                 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <FormField
                     control={form.control}
                     name="email"

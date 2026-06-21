@@ -78,9 +78,9 @@ export function AppointmentDialog({ children }: AppointmentDialogProps) {
       <DialogTrigger asChild>
         {children}
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[500px] max-h-[90vh] overflow-y-auto bg-white rounded-[2rem] p-8 border border-slate-100">
+      <DialogContent className="w-[calc(100vw-32px)] sm:max-w-[500px] max-h-[90svh] overflow-y-auto bg-white rounded-2xl sm:rounded-[2rem] p-5 sm:p-8 border border-slate-100">
         <DialogHeader className="mb-4">
-          <DialogTitle className="font-serif text-3xl font-bold text-[#1F2937]">Book an Appointment</DialogTitle>
+          <DialogTitle className="font-serif text-2xl sm:text-3xl font-bold text-[#1F2937]">Book an Appointment</DialogTitle>
           <DialogDescription className="text-[#64748B] text-base">
             Fill out the form below and we'll get back to you to confirm your visit.
           </DialogDescription>
@@ -88,7 +88,7 @@ export function AppointmentDialog({ children }: AppointmentDialogProps) {
 
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <FormField
                 control={form.control}
                 name="ownerName"
@@ -131,7 +131,7 @@ export function AppointmentDialog({ children }: AppointmentDialogProps) {
               )}
             />
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <FormField
                 control={form.control}
                 name="petName"
@@ -196,7 +196,7 @@ export function AppointmentDialog({ children }: AppointmentDialogProps) {
               )}
             />
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <FormField
                 control={form.control}
                 name="preferredDate"

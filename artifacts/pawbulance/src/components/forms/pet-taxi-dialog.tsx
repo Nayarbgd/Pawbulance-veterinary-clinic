@@ -80,9 +80,9 @@ export function PetTaxiDialog({ children }: PetTaxiDialogProps) {
       <DialogTrigger asChild>
         {children}
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[500px] max-h-[90vh] overflow-y-auto bg-white rounded-[2rem] p-8 border border-slate-100">
+      <DialogContent className="w-[calc(100vw-32px)] sm:max-w-[500px] max-h-[90svh] overflow-y-auto bg-white rounded-2xl sm:rounded-[2rem] p-5 sm:p-8 border border-slate-100">
         <DialogHeader className="mb-4">
-          <DialogTitle className="font-serif text-3xl font-bold text-[#1F2937] flex items-center gap-3">
+          <DialogTitle className="font-serif text-2xl sm:text-3xl font-bold text-[#1F2937] flex items-center gap-3">
             <div className="w-10 h-10 bg-blue-50 rounded-xl flex items-center justify-center">
               <Car className="w-6 h-6 text-[#3BA9F5]" />
             </div>
@@ -95,7 +95,7 @@ export function PetTaxiDialog({ children }: PetTaxiDialogProps) {
 
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <FormField
                 control={form.control}
                 name="ownerName"
@@ -138,7 +138,7 @@ export function PetTaxiDialog({ children }: PetTaxiDialogProps) {
               )}
             />
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <FormField
                 control={form.control}
                 name="petName"
@@ -205,7 +205,7 @@ export function PetTaxiDialog({ children }: PetTaxiDialogProps) {
               )}
             />
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <FormField
                 control={form.control}
                 name="pickupDate"

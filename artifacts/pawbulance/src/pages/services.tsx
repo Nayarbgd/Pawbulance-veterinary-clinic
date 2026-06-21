@@ -72,7 +72,7 @@ export default function Services() {
 
   return (
     <MainLayout>
-      <div className="bg-[#F7FBFF] border-b border-slate-100 py-24">
+      <div className="bg-[#F7FBFF] border-b border-slate-100 py-16 md:py-24">
         <div className="container mx-auto px-4 text-center max-w-3xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -92,8 +92,8 @@ export default function Services() {
         </div>
       </div>
 
-      <div className="bg-white py-24">
-        <div className="container mx-auto px-4">
+      <div className="bg-white py-12 md:py-24">
+        <div className="container mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => (
               <motion.div
@@ -103,7 +103,7 @@ export default function Services() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: index * 0.05 }}
               >
-                <Link href={service.href} className="block h-full bg-white border border-slate-100 p-8 rounded-3xl hover:border-blue-200 hover:shadow-md transition-all duration-300 group cursor-pointer">
+                <Link href={service.href} className="block h-full bg-white border border-slate-100 p-5 sm:p-8 rounded-2xl sm:rounded-3xl hover:border-blue-200 hover:shadow-md transition-all duration-300 group cursor-pointer">
                   <div className="w-16 h-16 rounded-2xl bg-blue-50 flex items-center justify-center mb-6 group-hover:bg-[#3BA9F5] group-hover:text-white transition-colors text-[#3BA9F5]">
                     <service.icon className="w-8 h-8" />
                   </div>

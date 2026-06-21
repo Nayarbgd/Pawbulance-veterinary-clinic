@@ -23,51 +23,47 @@ export default function Home() {
     <MainLayout>
 
       {/* ── HERO ── */}
-      <section className="relative min-h-[90vh] flex items-center overflow-hidden">
-        {/* Full-bleed background image */}
+      <section className="relative min-h-[100svh] sm:min-h-[90vh] flex items-center overflow-hidden">
         <img
           src="/hero-vet.png"
           alt="Pawbulance veterinary clinic Dubai"
-          className="absolute inset-0 w-full h-full object-cover object-center z-0"
-          style={{ objectPosition: "center center" }}
+          className="absolute inset-0 w-full h-full object-cover z-0"
+          style={{ objectPosition: "60% center" }}
         />
-        {/* Subtle overlay — left-weighted so text stays readable */}
         <div
           className="absolute inset-0 z-10"
-          style={{ background: "linear-gradient(90deg, rgba(255,255,255,0.72) 0%, rgba(255,255,255,0.30) 55%, rgba(255,255,255,0.05) 100%)" }}
+          style={{ background: "linear-gradient(90deg, rgba(255,255,255,0.88) 0%, rgba(255,255,255,0.65) 45%, rgba(255,255,255,0.10) 100%)" }}
         />
-
-        {/* Content */}
-        <div className="relative z-20 w-full pt-24 pb-16">
-          <div className="container mx-auto px-4">
-            <div className="max-w-xl">
+        <div className="relative z-20 w-full pt-20 pb-12">
+          <div className="container mx-auto px-4 sm:px-6">
+            <div className="max-w-lg">
               <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/90 shadow-sm border border-slate-100 text-slate-700 mb-8">
-                  <Star className="w-4 h-4 fill-[#3BA9F5] text-[#3BA9F5]" />
-                  <span className="text-sm font-medium">4.8★ Top Rated Vet Clinic in JBR</span>
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/90 shadow-sm border border-slate-100 text-slate-700 mb-6">
+                  <Star className="w-3.5 h-3.5 fill-[#3BA9F5] text-[#3BA9F5]" />
+                  <span className="text-xs sm:text-sm font-medium">4.8★ Top Rated Vet Clinic in JBR</span>
                 </div>
-                <h1 className="text-5xl md:text-7xl font-serif font-extrabold leading-tight mb-6 text-[#1F2937]">
+                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-extrabold leading-tight mb-5 text-[#1F2937]">
                   Premium care<br />for your{" "}
                   <span className="text-[#3BA9F5]">best friend</span>
                 </h1>
-                <p className="text-lg md:text-xl text-[#4B5563] mb-8 leading-relaxed">
-                  Step into a sanctuary where pets are treated as family. A modern veterinary clinic in the heart of JBR, bringing warmth, expertise, and love to veterinary medicine.
+                <p className="text-base sm:text-lg text-[#4B5563] mb-7 leading-relaxed max-w-md">
+                  A modern veterinary clinic in the heart of JBR, bringing warmth, expertise, and love to veterinary medicine.
                 </p>
-                <div className="flex flex-col sm:flex-row gap-4">
+                <div className="flex flex-col sm:flex-row gap-3">
                   <AppointmentDialog>
-                    <Button size="lg" className="h-14 px-8 text-lg bg-[#3BA9F5] hover:bg-[#2D96E5] text-white rounded-full shadow-md hover:shadow-lg transition-all font-semibold">
+                    <Button size="lg" className="h-12 sm:h-14 px-6 sm:px-8 text-base sm:text-lg bg-[#3BA9F5] hover:bg-[#2D96E5] text-white rounded-full shadow-md hover:shadow-lg transition-all font-semibold">
                       Book Appointment
                     </Button>
                   </AppointmentDialog>
-                  <Button size="lg" variant="outline" className="h-14 px-8 text-lg border-2 border-[#3BA9F5] text-[#3BA9F5] bg-white/80 rounded-full hover:bg-blue-50 transition-all font-semibold" asChild>
+                  <Button size="lg" variant="outline" className="h-12 sm:h-14 px-6 sm:px-8 text-base sm:text-lg border-2 border-[#3BA9F5] text-[#3BA9F5] bg-white/80 rounded-full hover:bg-blue-50 transition-all font-semibold" asChild>
                     <a href="https://wa.me/971547371109">WhatsApp Us</a>
                   </Button>
                 </div>
-                <div className="flex items-center gap-3 mt-8">
+                <div className="flex items-center gap-2 mt-6">
                   <div className="flex gap-0.5">
-                    {[1,2,3,4,5].map(s => <Star key={s} className="w-4 h-4 fill-yellow-400 text-yellow-400" />)}
+                    {[1,2,3,4,5].map(s => <Star key={s} className="w-3.5 h-3.5 fill-yellow-400 text-yellow-400" />)}
                   </div>
-                  <span className="text-sm text-[#4B5563] font-medium">131+ happy clients · JBR, Dubai</span>
+                  <span className="text-xs sm:text-sm text-[#4B5563] font-medium">131+ happy clients · JBR, Dubai</span>
                 </div>
               </motion.div>
             </div>
@@ -76,9 +72,9 @@ export default function Home() {
       </section>
 
       {/* ── TRUST STATS STRIP ── */}
-      <section className="bg-white border-y border-slate-100 py-10">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+      <section className="bg-white border-y border-slate-100 py-8">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             {[
               { value: "4.8★", label: "Google Rating" },
               { value: "131+", label: "Happy Reviews" },
@@ -95,11 +91,11 @@ export default function Home() {
       </section>
 
       {/* ── WHY CHOOSE US ── */}
-      <section className="bg-[#F7FBFF] py-20 border-b border-slate-100">
-        <div className="container mx-auto px-4">
-          <motion.div {...fadeUp} className="text-center mb-12">
-            <h2 className="text-4xl font-serif font-bold text-[#1F2937] mb-3">Why Pet Owners Choose Pawbulance</h2>
-            <p className="text-[#64748B] text-lg max-w-xl mx-auto">We are more than a clinic — we are a community built around the love of animals.</p>
+      <section className="bg-[#F7FBFF] py-14 md:py-20 border-b border-slate-100">
+        <div className="container mx-auto px-4 sm:px-6">
+          <motion.div {...fadeUp} className="text-center mb-10">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#1F2937] mb-3">Why Pet Owners Choose Pawbulance</h2>
+            <p className="text-[#64748B] text-base md:text-lg max-w-xl mx-auto">We are more than a clinic — we are a community built around the love of animals.</p>
           </motion.div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
             {[
@@ -123,11 +119,11 @@ export default function Home() {
       </section>
 
       {/* ── HOW IT WORKS ── */}
-      <section className="py-24 bg-white">
-        <div className="container mx-auto px-4">
-          <motion.div {...fadeUp} className="text-center mb-16">
-            <h2 className="text-4xl font-serif font-bold text-[#1F2937] mb-3">Your First Visit, Made Easy</h2>
-            <p className="text-[#64748B] text-lg max-w-xl mx-auto">We make it simple to get your pet the care they deserve — from booking to treatment.</p>
+      <section className="py-14 md:py-24 bg-white">
+        <div className="container mx-auto px-4 sm:px-6">
+          <motion.div {...fadeUp} className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#1F2937] mb-3">Your First Visit, Made Easy</h2>
+            <p className="text-[#64748B] text-base md:text-lg max-w-xl mx-auto">We make it simple to get your pet the care they deserve — from booking to treatment.</p>
           </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
             {/* Connector line desktop */}
@@ -152,12 +148,12 @@ export default function Home() {
       </section>
 
       {/* ── SERVICES PREVIEW ── */}
-      <section className="py-24 bg-[#F7FBFF] relative">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+      <section className="py-14 md:py-24 bg-[#F7FBFF] relative">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="flex flex-col md:flex-row justify-between items-end mb-10 gap-4">
             <div className="max-w-2xl">
-              <h2 className="text-4xl font-serif font-bold mb-4 text-[#1F2937]">Exceptional Services</h2>
-              <p className="text-[#64748B] text-lg">Comprehensive veterinary care designed to keep your pet healthy, happy, and thriving.</p>
+              <h2 className="text-3xl md:text-4xl font-serif font-bold mb-3 text-[#1F2937]">Exceptional Services</h2>
+              <p className="text-[#64748B] text-base md:text-lg">Comprehensive veterinary care designed to keep your pet healthy, happy, and thriving.</p>
             </div>
             <Button variant="outline" className="hidden md:flex gap-2 border-2 border-blue-100 text-[#3BA9F5] hover:bg-blue-50 hover:border-blue-200 rounded-full px-6 transition-all" asChild>
               <Link href="/services">View All Services <ArrowRight className="w-4 h-4" /></Link>
@@ -219,9 +215,9 @@ export default function Home() {
       </section>
 
       {/* ── PET TAXI ── */}
-      <section className="py-24 bg-gradient-to-br from-[#EAF7FF] to-[#F7FBFF] border-y border-blue-50 relative overflow-hidden">
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="flex flex-col lg:flex-row items-center gap-16">
+      <section className="py-14 md:py-24 bg-gradient-to-br from-[#EAF7FF] to-[#F7FBFF] border-y border-blue-50 relative overflow-hidden">
+        <div className="container mx-auto px-4 sm:px-6 relative z-10">
+          <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
             <div className="w-full lg:w-1/2">
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white shadow-sm border border-blue-100 text-[#3BA9F5] mb-6">
                 <span className="text-sm font-bold uppercase tracking-wider">Premium Transport</span>
@@ -261,11 +257,11 @@ export default function Home() {
       </section>
 
       {/* ── TESTIMONIALS ── */}
-      <section className="py-24 bg-white">
-        <div className="container mx-auto px-4">
-          <motion.div {...fadeUp} className="text-center mb-16">
-            <h2 className="text-4xl font-serif font-bold mb-4 text-[#1F2937]">Happy Pets & Owners</h2>
-            <p className="text-[#64748B] text-lg max-w-2xl mx-auto">See what our wonderful community has to say about their experience with us.</p>
+      <section className="py-14 md:py-24 bg-white">
+        <div className="container mx-auto px-4 sm:px-6">
+          <motion.div {...fadeUp} className="text-center mb-10 md:mb-16">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold mb-3 text-[#1F2937]">Happy Pets & Owners</h2>
+            <p className="text-[#64748B] text-base md:text-lg max-w-2xl mx-auto">See what our wonderful community has to say about their experience with us.</p>
           </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
@@ -299,9 +295,9 @@ export default function Home() {
       </section>
 
       {/* ── SERVICE AREAS ── */}
-      <section className="py-20 bg-[#F7FBFF] border-y border-slate-100">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col lg:flex-row items-center gap-12">
+      <section className="py-14 md:py-20 bg-[#F7FBFF] border-y border-slate-100">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-12">
             <motion.div {...fadeUp} className="w-full lg:w-1/2">
               <h2 className="text-4xl font-serif font-bold text-[#1F2937] mb-4">Serving Dubai's Finest Neighbourhoods</h2>
               <p className="text-[#64748B] text-lg mb-8 leading-relaxed">
@@ -338,9 +334,9 @@ export default function Home() {
       </section>
 
       {/* ── EMERGENCY CALLOUT ── */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <motion.div {...fadeUp} className="bg-gradient-to-r from-red-50 to-orange-50 border border-red-100 rounded-3xl p-10 flex flex-col md:flex-row items-center gap-8">
+      <section className="py-10 md:py-16 bg-white">
+        <div className="container mx-auto px-4 sm:px-6">
+          <motion.div {...fadeUp} className="bg-gradient-to-r from-red-50 to-orange-50 border border-red-100 rounded-2xl md:rounded-3xl p-6 md:p-10 flex flex-col md:flex-row items-center gap-6 md:gap-8">
             <div className="w-20 h-20 rounded-full bg-red-100 flex items-center justify-center shrink-0">
               <AlertTriangle className="w-10 h-10 text-red-500" />
             </div>
@@ -362,8 +358,8 @@ export default function Home() {
       </section>
 
       {/* ── ABOUT SNIPPET ── */}
-      <section className="py-20 bg-[#F7FBFF] border-t border-slate-100">
-        <div className="container mx-auto px-4">
+      <section className="py-14 md:py-20 bg-[#F7FBFF] border-t border-slate-100">
+        <div className="container mx-auto px-4 sm:px-6">
           <div className="flex flex-col lg:flex-row items-center gap-16">
             <motion.div {...fadeUp} className="w-full lg:w-1/2">
               <div className="relative rounded-[2rem] overflow-hidden shadow-xl border-4 border-white">
@@ -393,12 +389,12 @@ export default function Home() {
       </section>
 
       {/* ── FINAL CTA ── */}
-      <section className="py-20 bg-gradient-to-r from-[#3BA9F5] to-[#6CC7FF]">
-        <div className="container mx-auto px-4 text-center">
+      <section className="py-14 md:py-20 bg-gradient-to-r from-[#3BA9F5] to-[#6CC7FF]">
+        <div className="container mx-auto px-4 sm:px-6 text-center">
           <motion.div {...fadeUp}>
-            <h2 className="text-4xl font-serif font-bold text-white mb-6">Ready to prioritize your pet's wellness?</h2>
-            <p className="text-blue-50 text-xl mb-10 max-w-2xl mx-auto">Join the Pawbulance family today and experience a new standard of veterinary care in Dubai.</p>
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-white mb-4">Ready to prioritize your pet's wellness?</h2>
+            <p className="text-blue-50 text-base md:text-xl mb-8 max-w-2xl mx-auto">Join the Pawbulance family today and experience a new standard of veterinary care in Dubai.</p>
+            <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
               <AppointmentDialog>
                 <Button size="lg" className="h-14 px-8 text-lg bg-white text-[#3BA9F5] hover:bg-blue-50 rounded-full font-bold shadow-lg">
                   Book an Appointment
