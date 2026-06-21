@@ -29,6 +29,23 @@ html, body {
   will-change: transform, opacity;
 }
 
+/* Skeleton shimmer animation */
+@keyframes shimmer {
+  0%   { background-position: -600px 0; }
+  100% { background-position: 600px 0; }
+}
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    #f1f5f9 0%,
+    #e2e8f0 40%,
+    #f1f5f9 80%
+  );
+  background-size: 600px 100%;
+  animation: shimmer 1.4s ease-in-out infinite;
+}
+
 /* Tactile feedback — buttons feel physical on mobile */
 button,
 a,

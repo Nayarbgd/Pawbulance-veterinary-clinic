@@ -6,6 +6,8 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { FloatingWhatsApp } from "@/components/layout/floating-whatsapp";
+import { PageProgress } from "@/components/layout/page-progress";
+import { PageSkeleton } from "@/components/layout/page-skeleton";
 
 const Home         = lazy(() => import("@/pages/home"));
 const Services     = lazy(() => import("@/pages/services"));
@@ -29,14 +31,26 @@ function ScrollToTop() {
 }
 
 const pageVariants = {
-  initial: { opacity: 0, y: 10 },
-  animate: { opacity: 1, y: 0 },
-  exit: { opacity: 0, y: -6 },
+  initial: {
+    opacity: 0,
+    scale: 0.992,
+    filter: "blur(2px)",
+  },
+  animate: {
+    opacity: 1,
+    scale: 1,
+    filter: "blur(0px)",
+  },
+  exit: {
+    opacity: 0,
+    scale: 1.008,
+    filter: "blur(2px)",
+  },
 };
 
 const pageTransition = {
-  duration: 0.22,
-  ease: [0.25, 0.46, 0.45, 0.94],
+  duration: 0.38,
+  ease: [0.32, 0.72, 0, 1],
 };
 
 function AnimatedRoutes() {
@@ -51,9 +65,9 @@ function AnimatedRoutes() {
         animate="animate"
         exit="exit"
         transition={pageTransition}
-        style={{ minHeight: "100vh" }}
+        style={{ minHeight: "100vh", transformOrigin: "center top" }}
       >
-        <Suspense fallback={<div className="min-h-screen" />}>
+        <Suspense fallback={<PageSkeleton />}>
           <Switch>
             <Route path="/" component={Home} />
             <Route path="/services" component={Services} />
@@ -86,6 +100,7 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
+          <PageProgress />
           <Router />
         </WouterRouter>
         <Toaster />
