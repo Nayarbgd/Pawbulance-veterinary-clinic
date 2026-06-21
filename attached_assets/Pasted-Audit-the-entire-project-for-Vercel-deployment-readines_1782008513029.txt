@@ -1,0 +1,174 @@
+Audit the entire project for Vercel deployment readiness and fix any issues found.
+
+---
+
+## STEP 1: Run the build
+
+Execute: npm run build
+
+If it fails, fix ALL errors before continuing. Do not proceed until the build passes clean with zero errors and zero warnings that could cause Vercel to fail.
+
+---
+
+## STEP 2: Vercel compatibility checklist
+
+Check and fix each of these:
+
+**next.config.js**
+- Must not use any deprecated options (no `target`, no `future`, no `experimental.appDir` if already stable)
+- If using images from external domains, they must be listed under `images.domains` or `images.remotePatterns`
+- No custom `server.js` — Vercel uses serverless, not a custom Node server
+
+**Environment variables**
+- The project must work with ZERO environment variables — confirm no `process.env.ANYTHING` is referenced that isn't defined
+- If any env vars exist, add fallbacks or remove them if unused
+
+**Dependencies**
+- Check package.json — all imports used in the code must be listed in `dependencies` (not just `devDependencies`)
+- Run `npm install` to confirm no missing packages
+
+**File casing**
+- Vercel runs on Linux (case-sensitive filesystem). Check ALL imports across the entire codebase use the EXACT same casing as the actual filename on disk. Example: importing `./Navbar` when the file is `navbar.tsx` will break on Vercel but work on Windows/Mac locally. Scan every single import statement in every file.
+
+**API routes (if any)**
+- Must use Edge or Node runtime correctly
+- No `fs` module usage in pages or components (only in getStaticProps/generateStaticParams at most)
+
+**Images**
+- All `<img>` tags must have alt attributes
+- If using next/image, all external domains must be whitelisted in next.config.js
+- All local images must be in /public and referenced with paths starting with /
+
+**Google Maps iframes (if any)**
+- Confirm all embeds use the no-API-key format: src="https://maps.google.com/maps?q=[coordinates]&z=[zoom]&output=embed"
+- No API keys hardcoded anywhere in the codebase — search for any string containing "AIza" and remove it
+
+**Fonts**
+- Google Fonts must be loaded via next/font/google only — no @import in any CSS file
+
+**Output**
+- In next.config.js, do NOT set `output: 'export'` unless this is a fully static site with no dynamic routes — if it is set, confirm there are no server-side features being used
+
+---
+
+## STEP 3: Final verification
+
+After fixing everything:
+1. Run npm run build one final time — must be clean
+2. Scan the project directory and identify every page route that exists
+3. Confirm every page loads without errors
+4. Confirm no console errors in the browser on any page
+5. Confirm any embedded maps or third-party iframes render correctly
+
+Report back with:
+- ✅ Build passed
+- ✅ Complete list of fixes applied
+- ✅ Complete list of pages verified
+- ✅ Confirmed ready for Vercel deploy
+
+
+
+________________________________________
+STEP 2.5: Deployment Architecture & Monorepo Verification (CRITICAL)
+Before declaring the project ready for deployment, perform a COMPLETE deployment audit.
+Repository Structure
+Determine:
+•	Is this project a monorepo?
+•	What is the actual frontend root directory?
+•	What is the actual backend root directory?
+•	What package manager is used?
+o	npm
+o	pnpm
+o	yarn
+Print the exact directory tree.
+Example:
+/
+├── artifacts/
+│ └── frontend/
+├── api-server/
+└── packages/
+________________________________________
+Build Output Verification
+Run the build and determine:
+1.	Where is index.html generated?
+2.	Where are assets generated?
+3.	What is the FINAL output directory?
+Example:
+dist/
+dist/public/
+build/
+out/
+Print the exact path.
+Never assume.
+________________________________________
+Vercel Configuration Audit
+Search the ENTIRE repository for:
+•	vercel.json
+•	outputDirectory
+•	distDir
+•	public
+•	buildCommand
+•	installCommand
+•	rewrites
+Print:
+•	exact file paths
+•	exact values
+•	whether each file is tracked by git
+If multiple vercel.json files exist:
+Explain:
+•	which one Vercel will use
+•	which ones are ignored
+•	why
+________________________________________
+Root Directory Validation
+Determine:
+1.	Current Vercel Root Directory.
+2.	Whether vercel.json is inside that Root Directory.
+3.	Whether the outputDirectory is relative to that Root Directory.
+Reject configurations that would cause:
+•	public vs dist/public mismatches
+•	nested artifacts/artifacts paths
+•	absolute path output directories
+•	duplicate output directories
+________________________________________
+GitHub Sync Verification
+Determine:
+•	Is every deployment configuration file committed?
+•	Is every deployment configuration file pushed?
+•	Could Vercel actually see these files?
+List:
+•	git status
+•	uncommitted files
+•	untracked files
+•	last 5 commits
+Warn if:
+•	vercel.json exists locally but is not pushed
+•	deployment configuration differs from GitHub
+________________________________________
+Deployment Readiness Checklist
+Before approving deployment, verify:
+✓ Build succeeds
+✓ Build output directory exists
+✓ outputDirectory matches actual build output
+✓ Root Directory matches repository structure
+✓ vercel.json is inside the active Root Directory
+✓ Configuration files are committed
+✓ Configuration files are pushed to GitHub
+✓ No conflicting vercel.json files exist
+✓ SPA rewrites exist if React Router/Wouter is used
+✓ Environment variables required for production are documented
+✓ No Replit-only assumptions exist
+________________________________________
+Fail Fast Rule
+If ANY deployment configuration mismatch is found:
+STOP.
+Do not declare the project ready.
+Explain:
+1.	Root cause.
+2.	Exact file causing the problem.
+3.	Minimal fix.
+4.	Required git actions.
+5.	Required Vercel actions.
+Only after all checks pass may the project be declared:
+✅ Ready for Vercel Deployment
+
