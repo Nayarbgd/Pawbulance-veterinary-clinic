@@ -1,0 +1,553 @@
+Build a complete, high-converting veterinary clinic website for:
+
+BUSINESS NAME:
+Pawbulance Veterinary Clinic
+
+LOCATION:
+Amwaj 2, Al Mamsha Street,
+Jumeirah Beach Residence (JBR),
+Dubai, United Arab Emirates
+Plus Code: 34FJ+QP Dubai
+
+Website:
+https://pawbulance.ae
+
+Phone:
++971 54 737 1109
+
+Google Rating:
+4.8 Stars (131 Reviews)
+
+Business Category:
+Veterinary Clinic + Pet Transportation Service (Pet Taxi)
+
+Business Owner:
+Female-owned business.
+
+Primary Conversion Goals:
+1. Appointment bookings
+2. WhatsApp conversations
+3. Click-to-call phone calls
+4. Pet Taxi reservations
+
+This website is a revenue-generating business asset, not just a visually attractive website.
+
+====================================================
+BRAND IDENTITY
+====================================================
+
+Brand personality:
+
+Premium
+Warm
+Trustworthy
+Compassionate
+Modern
+Pet-friendly
+Luxury but approachable
+
+Core Message:
+
+"We understand that your furry family members are more than just pets."
+
+Unique Selling Points:
+
+• 4.8-star rating
+• 131 Google reviews
+• Pet Taxi Service
+• Expert veterinary team
+• Safe pet transportation
+• State-of-the-art facilities
+• Personalized care
+• Located in JBR Dubai
+• Female-owned business
+• Modern clinic
+
+Website Language:
+English
+
+Target Audience:
+
+Pet owners living in:
+
+JBR
+Dubai Marina
+Bluewaters
+Jumeirah
+Palm Jumeirah
+Al Sufouh
+Dubai
+
+====================================================
+COLOR SYSTEM
+====================================================
+
+Create a premium warm veterinary identity.
+
+DO NOT use pure black.
+
+Primary Orange:
+#FF9800
+
+Warm Orange:
+#F7A728
+
+Caramel:
+#A65E12
+
+Dark Brown:
+#7A4A17
+
+Gold Accent:
+#D9A441
+
+Background:
+#111111
+
+Secondary Background:
+#17110D
+
+Soft Cream:
+#F7E7C6
+
+Hero Gradient:
+
+radial-gradient(circle at top left,
+rgba(255,152,0,0.18) 0%,
+transparent 40%),
+
+radial-gradient(circle at bottom right,
+rgba(166,94,18,0.15) 0%,
+transparent 45%),
+
+#111111;
+
+The website should feel:
+
+Luxury Veterinary Clinic
++
+Warm Family Care
++
+Premium Pet Experience
+
+====================================================
+WEBSITE STRUCTURE
+====================================================
+
+Create a Multi-Page Website.
+
+Pages:
+
+/
+
+/services
+
+/pet-taxi
+
+/about
+
+/reviews
+
+/contact
+
+/emergency
+
+Each page must have:
+
+Unique SEO
+Unique Metadata
+Unique H1
+Unique URL
+Independent routing
+Independent schemas
+
+====================================================
+HOME PAGE SECTIONS
+====================================================
+
+1. Hero Section
+
+Headline:
+
+Premium Veterinary Care for Your Furry Family Members in Dubai
+
+Subheadline:
+
+Expert pet care, grooming, vaccinations and safe pet transportation services across JBR and Dubai Marina.
+
+CTA:
+
+Book Appointment
+
+Secondary CTA:
+
+WhatsApp Us
+
+Social Proof:
+
+⭐ 4.8 Google Rating
+⭐ 131 Reviews
+📍 JBR Dubai
+
+Hero image:
+
+Photorealistic premium veterinary scene.
+
+A veterinarian gently interacting with a happy dog or cat.
+
+Warm orange cinematic lighting.
+
+Modern Dubai clinic background.
+
+----------------------------------------------------
+
+2. Why Choose Pawbulance
+
+Cards:
+
+Expert Veterinarians
+
+Pet Taxi Service
+
+State-of-the-Art Facilities
+
+Compassionate Care
+
+Safe Transportation
+
+Convenient JBR Location
+
+----------------------------------------------------
+
+3. Services Preview
+
+Vaccinations
+
+Wellness Checkups
+
+Emergency Care
+
+Grooming
+
+Pet Transportation
+
+Health Certificates
+
+Microchipping
+
+Diagnostics
+
+----------------------------------------------------
+
+4. Pet Taxi Section
+
+Large featured section.
+
+Explain:
+
+Safe and dependable transportation for veterinary appointments, grooming appointments and pet travel.
+
+Features:
+
+Door-to-door service
+Comfort-first transportation
+Professional handlers
+Reliable scheduling
+
+CTA:
+
+Reserve Pet Taxi
+
+----------------------------------------------------
+
+5. Testimonials
+
+Generate realistic placeholder reviews.
+
+Examples:
+
+Sarah A.
+Dubai Marina
+
+"My cat Luna had an emergency late in the evening and the Pawbulance team was incredible. The staff treated her with so much care."
+
+Ahmed K.
+JBR
+
+"The pet taxi service saved us so much time. Extremely professional team."
+
+Jessica R.
+Bluewaters
+
+"The clinic is modern, clean and the veterinarians genuinely care about pets."
+
+----------------------------------------------------
+
+6. Service Areas
+
+JBR
+
+Dubai Marina
+
+Bluewaters
+
+Palm Jumeirah
+
+Jumeirah
+
+Al Sufouh
+
+Map section.
+
+----------------------------------------------------
+
+7. Final CTA
+
+Need Veterinary Care or Pet Transportation?
+
+Book an Appointment Today.
+
+Buttons:
+
+Book Appointment
+Call Now
+WhatsApp
+
+====================================================
+SERVICES PAGE
+====================================================
+
+Create dedicated sections for:
+
+Vaccinations
+General Consultation
+Diagnostics
+Grooming
+Preventive Care
+Emergency Care
+Health Certificates
+Microchipping
+Pet Transportation
+
+Each service should have:
+
+SEO content
+Benefits
+CTA
+FAQs
+
+====================================================
+PET TAXI PAGE
+====================================================
+
+Create an entire landing page dedicated to:
+
+Pet Taxi Service Dubai
+
+SEO Keywords:
+
+Pet Taxi Dubai
+Pet Transport Dubai
+Pet Transfer Dubai
+Pet Taxi JBR
+Pet Transportation Dubai Marina
+
+Include:
+
+How it Works
+Safety Procedures
+Booking Form
+FAQs
+Coverage Areas
+
+====================================================
+ABOUT PAGE
+====================================================
+
+Tell the story:
+
+Pawbulance believes pets are family members.
+
+Focus on:
+
+Compassion
+Safety
+Expertise
+Personalized Care
+Female-owned business
+Modern facilities
+
+====================================================
+REVIEWS PAGE
+====================================================
+
+Testimonials grid.
+
+Google Reviews section.
+
+CTA after every 3 reviews.
+
+====================================================
+CONTACT PAGE
+====================================================
+
+Phone:
++971547371109
+
+Address:
+Amwaj 2,
+Al Mamsha Street,
+Jumeirah Beach Residence,
+Dubai,
+United Arab Emirates
+
+Hours:
+
+Monday:
+9:30 AM – 6:30 PM
+
+Tuesday:
+Closed
+
+Wednesday:
+9:30 AM – 6:00 PM
+
+Thursday:
+9:30 AM – 6:30 PM
+
+Friday:
+9:30 AM – 6:30 PM
+
+Saturday:
+9:30 AM – 6:30 PM
+
+Sunday:
+9:30 AM – 6:30 PM
+
+Include:
+
+Embedded Google Map
+Directions Button
+Call Button
+WhatsApp Button
+Contact Form
+
+====================================================
+TECHNICAL REQUIREMENTS
+====================================================
+
+Use:
+
+Next.js 14 App Router
+TypeScript
+Tailwind CSS
+Framer Motion
+Lucide React
+
+Mobile First.
+
+Sticky Header.
+
+Floating WhatsApp Button:
+
+wa.me/971547371109
+
+Smooth scrolling.
+
+Fade animations.
+
+Parallax effects.
+
+Lazy loading.
+
+Code splitting.
+
+Image optimization.
+
+Accessibility:
+
+aria-labels
+semantic HTML
+keyboard navigation
+
+====================================================
+BACKEND
+====================================================
+
+Create:
+
+Appointment Booking System
+
+Pet Taxi Reservation System
+
+Contact Form System
+
+Create Route Handlers:
+
+app/api/appointments/route.ts
+
+app/api/pet-taxi/route.ts
+
+app/api/contact/route.ts
+
+Use SQLite for MVP.
+
+Create admin dashboard:
+
+/admin
+
+Admin can:
+
+View appointments
+View pet taxi bookings
+View contact leads
+Update statuses
+Search and filter bookings
+
+====================================================
+SEO
+====================================================
+
+Implement:
+
+Metadata API
+LocalBusiness Schema
+VeterinaryCare Schema
+FAQ Schema
+Breadcrumb Schema
+Open Graph
+Twitter Cards
+robots.txt
+sitemap.xml
+Canonical URLs
+
+Target Keywords:
+
+Veterinary Clinic Dubai
+Vet JBR Dubai
+Veterinarian Dubai Marina
+Pet Taxi Dubai
+Emergency Vet Dubai
+Pet Transportation Dubai
+Veterinary Clinic JBR
+
+====================================================
+DEPLOYMENT
+====================================================
+
+Vercel Deploy Ready.
+
+No Express server.
+
+No Replit-only dependencies.
+
+Use Route Handlers only.
+
+Project must run with:
+
+npm run build
+npm run start
+
+Create README with deployment instructions.
+
+Build a complete production-ready website that feels like a real premium veterinary clinic in Dubai and is optimized to convert visitors into bookings, calls and WhatsApp conversations.

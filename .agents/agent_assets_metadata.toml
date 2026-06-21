@@ -1,0 +1,20 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "0DJVTgOrzLOUHy9cvY6LD"
+uri = "file://artifacts/pawbulance/public/hero-bg.png"
+type = "image"
+title = "Hero veterinary clinic luxury"
+
+[[generated]]
+id = "7yFY2R8r66Wl7ZMPY4lSv"
+uri = "file://artifacts/pawbulance/public/pet-taxi.png"
+type = "image"
+title = "Pet taxi transport"
+
+[[generated]]
+id = "-PmE-1bGPB8IeU5WVHSZZ"
+uri = "file://artifacts/pawbulance/public/vet-care.png"
+type = "image"
+title = "Vet examining pet"

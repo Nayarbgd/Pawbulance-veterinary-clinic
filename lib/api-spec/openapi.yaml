@@ -3,13 +3,21 @@ info:
   # Do not change the title, if the title changes, the import paths will be broken
   title: Api
   version: 0.1.0
-  description: API specification
+  description: Pawbulance Veterinary Clinic API
 servers:
   - url: /api
     description: Base API path
 tags:
   - name: health
     description: Health operations
+  - name: appointments
+    description: Appointment booking operations
+  - name: pet-taxi
+    description: Pet taxi reservation operations
+  - name: contact
+    description: Contact form operations
+  - name: admin
+    description: Admin dashboard operations
 paths:
   /healthz:
     get:
@@ -24,6 +32,234 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/HealthStatus"
+
+  /appointments:
+    get:
+      operationId: listAppointments
+      tags: [appointments]
+      summary: List all appointments
+      parameters:
+        - in: query
+          name: status
+          schema:
+            type: string
+            enum: [pending, confirmed, completed, cancelled]
+        - in: query
+          name: limit
+          schema:
+            type: integer
+            default: 50
+        - in: query
+          name: offset
+          schema:
+            type: integer
+            default: 0
+      responses:
+        "200":
+          description: List of appointments
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Appointment"
+    post:
+      operationId: createAppointment
+      tags: [appointments]
+      summary: Book an appointment
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AppointmentInput"
+      responses:
+        "201":
+          description: Appointment created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Appointment"
+        "400":
+          description: Validation error
+
+  /appointments/{id}:
+    get:
+      operationId: getAppointment
+      tags: [appointments]
+      summary: Get appointment by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Appointment details
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Appointment"
+        "404":
+          description: Not found
+    patch:
+      operationId: updateAppointment
+      tags: [appointments]
+      summary: Update appointment status
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AppointmentUpdate"
+      responses:
+        "200":
+          description: Updated appointment
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Appointment"
+
+  /pet-taxi:
+    get:
+      operationId: listPetTaxiBookings
+      tags: [pet-taxi]
+      summary: List all pet taxi bookings
+      parameters:
+        - in: query
+          name: status
+          schema:
+            type: string
+            enum: [pending, confirmed, completed, cancelled]
+        - in: query
+          name: limit
+          schema:
+            type: integer
+            default: 50
+        - in: query
+          name: offset
+          schema:
+            type: integer
+            default: 0
+      responses:
+        "200":
+          description: List of pet taxi bookings
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/PetTaxiBooking"
+    post:
+      operationId: createPetTaxiBooking
+      tags: [pet-taxi]
+      summary: Reserve a pet taxi
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PetTaxiInput"
+      responses:
+        "201":
+          description: Pet taxi booking created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PetTaxiBooking"
+        "400":
+          description: Validation error
+
+  /pet-taxi/{id}:
+    patch:
+      operationId: updatePetTaxiBooking
+      tags: [pet-taxi]
+      summary: Update pet taxi booking status
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PetTaxiUpdate"
+      responses:
+        "200":
+          description: Updated booking
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PetTaxiBooking"
+
+  /contact:
+    get:
+      operationId: listContactLeads
+      tags: [contact]
+      summary: List all contact form submissions
+      parameters:
+        - in: query
+          name: limit
+          schema:
+            type: integer
+            default: 50
+        - in: query
+          name: offset
+          schema:
+            type: integer
+            default: 0
+      responses:
+        "200":
+          description: List of contact leads
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/ContactLead"
+    post:
+      operationId: submitContact
+      tags: [contact]
+      summary: Submit a contact form
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ContactInput"
+      responses:
+        "201":
+          description: Contact submission received
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ContactLead"
+        "400":
+          description: Validation error
+
+  /admin/stats:
+    get:
+      operationId: getAdminStats
+      tags: [admin]
+      summary: Get admin dashboard statistics
+      responses:
+        "200":
+          description: Dashboard statistics
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AdminStats"
+
 components:
   schemas:
     HealthStatus:
@@ -34,3 +270,218 @@ components:
       required:
         - status
 
+    Appointment:
+      type: object
+      required: [id, ownerName, ownerEmail, ownerPhone, petName, petType, serviceType, preferredDate, status, createdAt]
+      properties:
+        id:
+          type: integer
+        ownerName:
+          type: string
+        ownerEmail:
+          type: string
+        ownerPhone:
+          type: string
+        petName:
+          type: string
+        petType:
+          type: string
+        petBreed:
+          type: ["string", "null"]
+        serviceType:
+          type: string
+        preferredDate:
+          type: string
+        preferredTime:
+          type: ["string", "null"]
+        notes:
+          type: ["string", "null"]
+        status:
+          type: string
+          enum: [pending, confirmed, completed, cancelled]
+        createdAt:
+          type: string
+
+    AppointmentInput:
+      type: object
+      required: [ownerName, ownerEmail, ownerPhone, petName, petType, serviceType, preferredDate]
+      properties:
+        ownerName:
+          type: string
+          minLength: 1
+        ownerEmail:
+          type: string
+          format: email
+        ownerPhone:
+          type: string
+          minLength: 1
+        petName:
+          type: string
+          minLength: 1
+        petType:
+          type: string
+          minLength: 1
+        petBreed:
+          type: string
+        serviceType:
+          type: string
+          minLength: 1
+        preferredDate:
+          type: string
+          minLength: 1
+        preferredTime:
+          type: string
+        notes:
+          type: string
+
+    AppointmentUpdate:
+      type: object
+      properties:
+        status:
+          type: string
+          enum: [pending, confirmed, completed, cancelled]
+        notes:
+          type: string
+
+    PetTaxiBooking:
+      type: object
+      required: [id, ownerName, ownerEmail, ownerPhone, petName, petType, pickupAddress, dropoffAddress, pickupDate, status, createdAt]
+      properties:
+        id:
+          type: integer
+        ownerName:
+          type: string
+        ownerEmail:
+          type: string
+        ownerPhone:
+          type: string
+        petName:
+          type: string
+        petType:
+          type: string
+        petBreed:
+          type: ["string", "null"]
+        pickupAddress:
+          type: string
+        dropoffAddress:
+          type: string
+        pickupDate:
+          type: string
+        pickupTime:
+          type: ["string", "null"]
+        notes:
+          type: ["string", "null"]
+        status:
+          type: string
+          enum: [pending, confirmed, completed, cancelled]
+        createdAt:
+          type: string
+
+    PetTaxiInput:
+      type: object
+      required: [ownerName, ownerEmail, ownerPhone, petName, petType, pickupAddress, dropoffAddress, pickupDate]
+      properties:
+        ownerName:
+          type: string
+          minLength: 1
+        ownerEmail:
+          type: string
+          format: email
+        ownerPhone:
+          type: string
+          minLength: 1
+        petName:
+          type: string
+          minLength: 1
+        petType:
+          type: string
+          minLength: 1
+        petBreed:
+          type: string
+        pickupAddress:
+          type: string
+          minLength: 1
+        dropoffAddress:
+          type: string
+          minLength: 1
+        pickupDate:
+          type: string
+          minLength: 1
+        pickupTime:
+          type: string
+        notes:
+          type: string
+
+    PetTaxiUpdate:
+      type: object
+      properties:
+        status:
+          type: string
+          enum: [pending, confirmed, completed, cancelled]
+        notes:
+          type: string
+
+    ContactLead:
+      type: object
+      required: [id, name, email, subject, message, createdAt]
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        email:
+          type: string
+        phone:
+          type: ["string", "null"]
+        subject:
+          type: string
+        message:
+          type: string
+        createdAt:
+          type: string
+
+    ContactInput:
+      type: object
+      required: [name, email, subject, message]
+      properties:
+        name:
+          type: string
+          minLength: 1
+        email:
+          type: string
+          format: email
+        phone:
+          type: string
+        subject:
+          type: string
+          minLength: 1
+        message:
+          type: string
+          minLength: 1
+
+    AdminStats:
+      type: object
+      required: [totalAppointments, pendingAppointments, totalPetTaxiBookings, pendingPetTaxiBookings, totalContactLeads, recentAppointments, recentPetTaxiBookings]
+      properties:
+        totalAppointments:
+          type: integer
+        pendingAppointments:
+          type: integer
+        confirmedAppointments:
+          type: integer
+        totalPetTaxiBookings:
+          type: integer
+        pendingPetTaxiBookings:
+          type: integer
+        confirmedPetTaxiBookings:
+          type: integer
+        totalContactLeads:
+          type: integer
+        recentAppointments:
+          type: array
+          items:
+            $ref: "#/components/schemas/Appointment"
+        recentPetTaxiBookings:
+          type: array
+          items:
+            $ref: "#/components/schemas/PetTaxiBooking"
