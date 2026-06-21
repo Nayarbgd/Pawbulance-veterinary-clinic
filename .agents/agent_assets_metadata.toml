@@ -18,3 +18,9 @@ id = "-PmE-1bGPB8IeU5WVHSZZ"
 uri = "file://artifacts/pawbulance/public/vet-care.png"
 type = "image"
 title = "Vet examining pet"
+
+[[generated]]
+id = "DmLhjuE507vYumK4Tmgx3"
+uri = "file://attached_assets/generated_images/a_friendly_veterinarian_in_f14b.png"
+type = "image"
+title = "generated_image"
