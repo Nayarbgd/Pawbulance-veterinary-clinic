@@ -6,11 +6,63 @@ html, body {
   overflow-x: hidden;
   -webkit-tap-highlight-color: transparent;
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
 *, *::before, *::after {
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Momentum scrolling in overflow containers */
+.overflow-y-auto,
+.overflow-y-scroll,
+[data-radix-scroll-area-viewport] {
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+}
+
+/* GPU acceleration for framer-motion elements */
+[style*="transform"],
+[style*="opacity"] {
+  will-change: transform, opacity;
+}
+
+/* Tactile feedback — buttons feel physical on mobile */
+button,
+a,
+[role="button"] {
+  touch-action: manipulation;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+button:active:not(:disabled),
+[role="button"]:active {
+  transform: scale(0.96);
+  transition: transform 80ms ease;
+}
+
+/* Smooth transitions for interactive elements */
+a,
+button {
+  transition-property: color, background-color, border-color, box-shadow, transform, opacity;
+  transition-duration: 150ms;
+  transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Better image rendering */
+img {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 @plugin "@tailwindcss/typography";
 
