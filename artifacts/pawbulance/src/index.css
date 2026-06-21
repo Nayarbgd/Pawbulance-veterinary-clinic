@@ -52,10 +52,14 @@ button {
   transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-/* Better image rendering */
-img {
-  image-rendering: -webkit-optimize-contrast;
-  image-rendering: crisp-edges;
+/* Hero image responsive position */
+.hero-img {
+  object-position: 40% top;
+}
+@media (min-width: 768px) {
+  .hero-img {
+    object-position: 60% center;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

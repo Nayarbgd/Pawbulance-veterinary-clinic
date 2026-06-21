@@ -22,8 +22,53 @@ export default function Home() {
   return (
     <MainLayout>
 
-      {/* ── HERO ── */}
-      <section className="relative min-h-[100svh] sm:min-h-[90vh] flex items-center overflow-hidden">
+      {/* ── HERO MOBILE (stacked: image top, text below) ── */}
+      <section className="md:hidden bg-white">
+        <div className="h-[60px]" />
+        {/* Full-width image — 56vw height shows the full landscape photo without side-cropping */}
+        <div className="w-full overflow-hidden" style={{ height: "56vw", minHeight: 210 }}>
+          <img
+            src="/hero-vet.png"
+            alt="Equipo Pawbulance Dubai"
+            className="w-full h-full object-cover object-center"
+          />
+        </div>
+        {/* Text below the image */}
+        <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45 }}
+          className="px-5 pt-7 pb-10 bg-white"
+        >
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-50 border border-blue-100 text-slate-700 mb-5">
+            <Star className="w-3.5 h-3.5 fill-[#3BA9F5] text-[#3BA9F5]" />
+            <span className="text-xs font-medium">4.8★ Top Rated Vet Clinic in JBR</span>
+          </div>
+          <h1 className="text-4xl font-serif font-extrabold leading-tight mb-4 text-[#1F2937]">
+            Premium care<br />for your{" "}
+            <span className="text-[#3BA9F5]">best friend</span>
+          </h1>
+          <p className="text-base text-[#4B5563] mb-6 leading-relaxed">
+            A modern veterinary clinic in the heart of JBR, bringing warmth, expertise, and love to veterinary medicine.
+          </p>
+          <div className="flex flex-col gap-3">
+            <AppointmentDialog>
+              <Button size="lg" className="h-12 text-base bg-[#3BA9F5] hover:bg-[#2D96E5] text-white rounded-full shadow-md font-semibold w-full">
+                Book Appointment
+              </Button>
+            </AppointmentDialog>
+            <Button size="lg" variant="outline" className="h-12 text-base border-2 border-[#3BA9F5] text-[#3BA9F5] rounded-full font-semibold w-full" asChild>
+              <a href="https://wa.me/971547371109">WhatsApp Us</a>
+            </Button>
+          </div>
+          <div className="flex items-center gap-2 mt-5">
+            <div className="flex gap-0.5">
+              {[1,2,3,4,5].map(s => <Star key={s} className="w-3.5 h-3.5 fill-yellow-400 text-yellow-400" />)}
+            </div>
+            <span className="text-xs text-[#4B5563] font-medium">131+ happy clients · JBR, Dubai</span>
+          </div>
+        </motion.div>
+      </section>
+
+      {/* ── HERO DESKTOP (full-bleed overlay) ── */}
+      <section className="hidden md:flex relative min-h-[90vh] items-center overflow-hidden">
         <img
           src="/hero-vet.png"
           alt="Pawbulance veterinary clinic Dubai"
@@ -35,27 +80,27 @@ export default function Home() {
           style={{ background: "linear-gradient(90deg, rgba(255,255,255,0.88) 0%, rgba(255,255,255,0.65) 45%, rgba(255,255,255,0.10) 100%)" }}
         />
         <div className="relative z-20 w-full pt-20 pb-12">
-          <div className="container mx-auto px-4 sm:px-6">
+          <div className="container mx-auto px-6">
             <div className="max-w-lg">
               <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
                 <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/90 shadow-sm border border-slate-100 text-slate-700 mb-6">
                   <Star className="w-3.5 h-3.5 fill-[#3BA9F5] text-[#3BA9F5]" />
-                  <span className="text-xs sm:text-sm font-medium">4.8★ Top Rated Vet Clinic in JBR</span>
+                  <span className="text-sm font-medium">4.8★ Top Rated Vet Clinic in JBR</span>
                 </div>
-                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-extrabold leading-tight mb-5 text-[#1F2937]">
+                <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-extrabold leading-tight mb-5 text-[#1F2937]">
                   Premium care<br />for your{" "}
                   <span className="text-[#3BA9F5]">best friend</span>
                 </h1>
-                <p className="text-base sm:text-lg text-[#4B5563] mb-7 leading-relaxed max-w-md">
+                <p className="text-lg text-[#4B5563] mb-7 leading-relaxed max-w-md">
                   A modern veterinary clinic in the heart of JBR, bringing warmth, expertise, and love to veterinary medicine.
                 </p>
-                <div className="flex flex-col sm:flex-row gap-3">
+                <div className="flex gap-4">
                   <AppointmentDialog>
-                    <Button size="lg" className="h-12 sm:h-14 px-6 sm:px-8 text-base sm:text-lg bg-[#3BA9F5] hover:bg-[#2D96E5] text-white rounded-full shadow-md hover:shadow-lg transition-all font-semibold">
+                    <Button size="lg" className="h-14 px-8 text-lg bg-[#3BA9F5] hover:bg-[#2D96E5] text-white rounded-full shadow-md font-semibold">
                       Book Appointment
                     </Button>
                   </AppointmentDialog>
-                  <Button size="lg" variant="outline" className="h-12 sm:h-14 px-6 sm:px-8 text-base sm:text-lg border-2 border-[#3BA9F5] text-[#3BA9F5] bg-white/80 rounded-full hover:bg-blue-50 transition-all font-semibold" asChild>
+                  <Button size="lg" variant="outline" className="h-14 px-8 text-lg border-2 border-[#3BA9F5] text-[#3BA9F5] bg-white/80 rounded-full hover:bg-blue-50 font-semibold" asChild>
                     <a href="https://wa.me/971547371109">WhatsApp Us</a>
                   </Button>
                 </div>
@@ -63,7 +108,7 @@ export default function Home() {
                   <div className="flex gap-0.5">
                     {[1,2,3,4,5].map(s => <Star key={s} className="w-3.5 h-3.5 fill-yellow-400 text-yellow-400" />)}
                   </div>
-                  <span className="text-xs sm:text-sm text-[#4B5563] font-medium">131+ happy clients · JBR, Dubai</span>
+                  <span className="text-sm text-[#4B5563] font-medium">131+ happy clients · JBR, Dubai</span>
                 </div>
               </motion.div>
             </div>
