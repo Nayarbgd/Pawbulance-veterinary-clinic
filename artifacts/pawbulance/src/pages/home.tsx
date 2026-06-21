@@ -37,10 +37,6 @@ export default function Home() {
         />
         <div className="relative z-20 flex flex-col justify-center h-full px-5 pt-28 pb-12">
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45 }}>
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/80 border border-slate-100 text-slate-700 mb-5 shadow-sm">
-              <Star className="w-3.5 h-3.5 fill-[#3BA9F5] text-[#3BA9F5]" />
-              <span className="text-xs font-medium">4.8★ Top Rated Vet Clinic in JBR</span>
-            </div>
             <h1 className="text-4xl font-serif font-extrabold leading-tight mb-4 text-[#1F2937]">
               Premium care<br />for your{" "}
               <span className="text-[#3BA9F5]">best friend</span>
