@@ -59,7 +59,7 @@ export default function Home() {
             <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5, delay: 0.1 }} className="hidden lg:block relative">
               <div className="relative rounded-[2.5rem] overflow-hidden border-8 border-white shadow-2xl rotate-2">
                 <div className="aspect-[4/3] bg-gradient-to-tr from-blue-100 to-white flex items-center justify-center">
-                  <img src="https://images.unsplash.com/photo-1596492784531-6e6eb5ea9993?q=80&w=1974&auto=format&fit=crop" alt="Happy dog with vet" className="w-full h-full object-cover" />
+                  <img src="/hero-vet.png" alt="Happy dog with vet" className="w-full h-full object-cover" />
                 </div>
               </div>
               <div className="absolute -bottom-6 -left-6 bg-white p-4 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-4 -rotate-3">
