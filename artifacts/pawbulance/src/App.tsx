@@ -4,6 +4,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { FloatingWhatsApp } from "@/components/layout/floating-whatsapp";
 import NotFound from "@/pages/not-found";
 
 import Home from "@/pages/home";
@@ -85,6 +86,8 @@ function App() {
           <Router />
         </WouterRouter>
         <Toaster />
+        {/* FloatingWhatsApp lives outside AnimatePresence so it never disappears */}
+        <FloatingWhatsApp />
       </TooltipProvider>
     </QueryClientProvider>
   );

@@ -1,7 +1,6 @@
 import { ReactNode } from "react";
 import { Navigation } from "./navigation";
 import { Footer } from "./footer";
-import { FloatingWhatsApp } from "./floating-whatsapp";
 
 interface MainLayoutProps {
   children: ReactNode;
@@ -15,7 +14,6 @@ export function MainLayout({ children }: MainLayoutProps) {
         {children}
       </main>
       <Footer />
-      <FloatingWhatsApp />
     </div>
   );
 }
