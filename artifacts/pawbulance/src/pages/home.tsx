@@ -138,7 +138,7 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { title: "General Consultation", desc: "Comprehensive health assessments for your pet's ongoing wellness.", img: "https://images.unsplash.com/photo-1628009368231-7bb7cbcb8127?q=80&w=2070&auto=format&fit=crop" },
+              { title: "General Consultation", desc: "Comprehensive health assessments for your pet's ongoing wellness.", img: "/general-consultation.png" },
               { title: "Vaccinations", desc: "Essential immunizations to protect against common and severe diseases.", img: "https://images.unsplash.com/photo-1576201836106-db1758fd1c97?q=80&w=2070&auto=format&fit=crop" },
               { title: "Grooming", desc: "Premium spa and grooming services for a clean, happy pet.", img: "https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?q=80&w=2071&auto=format&fit=crop" }
             ].map((service, idx) => (
