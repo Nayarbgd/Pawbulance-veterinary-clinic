@@ -57,9 +57,12 @@ export function Navigation() {
           </nav>
 
           <div className="hidden lg:flex items-center gap-4">
-            <a href="tel:+971547371109" className="text-sm font-medium text-slate-700 hover:text-[#3BA9F5] transition-colors flex items-center gap-2">
+            <a
+              href="tel:+971547371109"
+              className="flex items-center gap-2 border border-[#3BA9F5] text-[#3BA9F5] hover:bg-blue-50 transition-colors rounded-full px-5 py-2 text-sm font-semibold"
+            >
               <Phone className="w-4 h-4" />
-              +971 54 737 1109
+              Call Now
             </a>
             <AppointmentDialog>
               <Button className="bg-[#3BA9F5] hover:bg-[#2D96E5] text-white rounded-full px-6 py-2 transition-colors shadow-sm">
