@@ -66,66 +66,68 @@ export default function Services() {
 
   return (
     <MainLayout>
-      <div className="bg-card border-b border-border py-20">
+      <div className="bg-[#F7FBFF] border-b border-slate-100 py-24">
         <div className="container mx-auto px-4 text-center max-w-3xl">
-          <motion.h1 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-5xl font-serif font-bold mb-6"
+            transition={{ duration: 0.5 }}
           >
-            Premium Veterinary Services
-          </motion.h1>
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="text-lg text-muted-foreground"
-          >
-            From routine checkups to specialized treatments, our expert team provides compassionate, comprehensive care using state-of-the-art medical technology.
-          </motion.p>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white shadow-sm border border-slate-100 text-[#3BA9F5] mb-6 font-bold uppercase tracking-wider text-sm">
+              Our Services
+            </div>
+            <h1 className="text-4xl md:text-5xl font-serif font-extrabold mb-6 text-[#1F2937]">
+              Premium Veterinary Care
+            </h1>
+            <p className="text-lg text-[#64748B] leading-relaxed">
+              From routine checkups to specialized treatments, our expert team provides compassionate, comprehensive care using modern medical technology.
+            </p>
+          </motion.div>
         </div>
       </div>
 
-      <div className="container mx-auto px-4 py-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="bg-card border border-border p-8 rounded-2xl hover:border-primary/50 transition-colors group"
-            >
-              <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-primary-foreground transition-colors text-primary">
-                <service.icon className="w-7 h-7" />
-              </div>
-              <h3 className="text-2xl font-serif font-bold mb-4">{service.title}</h3>
-              <p className="text-muted-foreground mb-6 h-20">
-                {service.description}
-              </p>
-              <ul className="space-y-2">
-                {service.details.map((detail, i) => (
-                  <li key={i} className="flex items-center gap-2 text-sm text-foreground/80">
-                    <div className="w-1.5 h-1.5 rounded-full bg-primary/50" />
-                    {detail}
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-          ))}
-        </div>
+      <div className="bg-white py-24">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {services.map((service, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.05 }}
+                className="bg-white border border-slate-100 p-8 rounded-3xl hover:border-blue-200 hover:shadow-md transition-all duration-300 group"
+              >
+                <div className="w-16 h-16 rounded-2xl bg-blue-50 flex items-center justify-center mb-6 group-hover:bg-[#3BA9F5] group-hover:text-white transition-colors text-[#3BA9F5]">
+                  <service.icon className="w-8 h-8" />
+                </div>
+                <h3 className="text-2xl font-serif font-bold mb-4 text-[#1F2937]">{service.title}</h3>
+                <p className="text-[#64748B] mb-6 h-auto min-h-[5rem] leading-relaxed">
+                  {service.description}
+                </p>
+                <ul className="space-y-3 pt-4 border-t border-slate-50">
+                  {service.details.map((detail, i) => (
+                    <li key={i} className="flex items-center gap-3 text-sm text-[#1F2937] font-medium">
+                      <div className="w-2 h-2 rounded-full bg-[#3BA9F5]" />
+                      {detail}
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            ))}
+          </div>
 
-        <div className="mt-20 bg-primary/5 border border-primary/20 rounded-3xl p-10 text-center max-w-4xl mx-auto">
-          <h2 className="text-3xl font-serif font-bold mb-4">Need to schedule a visit?</h2>
-          <p className="text-muted-foreground mb-8 text-lg">
-            Our team is ready to provide the best care for your furry family member.
-          </p>
-          <AppointmentDialog>
-            <Button size="lg" className="h-14 px-8 text-lg bg-primary hover:bg-primary/90 text-primary-foreground">
-              Book an Appointment
-            </Button>
-          </AppointmentDialog>
+          <div className="mt-24 bg-[#EAF7FF] rounded-[2.5rem] p-12 text-center max-w-4xl mx-auto border border-blue-100">
+            <h2 className="text-3xl font-serif font-bold mb-4 text-[#1F2937]">Need to schedule a visit?</h2>
+            <p className="text-[#64748B] mb-8 text-lg">
+              Our team is ready to provide the best care for your furry family member.
+            </p>
+            <AppointmentDialog>
+              <Button size="lg" className="h-14 px-10 text-lg bg-[#3BA9F5] hover:bg-[#2D96E5] text-white rounded-full font-bold shadow-md">
+                Book an Appointment
+              </Button>
+            </AppointmentDialog>
+          </div>
         </div>
       </div>
     </MainLayout>

@@ -17,7 +17,6 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useQueryClient } from "@tanstack/react-query";
 import { useToast } from "@/hooks/use-toast";
 
@@ -66,30 +65,30 @@ export default function AdminDashboard() {
 
   const getStatusBadge = (status: string) => {
     switch (status) {
-      case "pending": return <Badge variant="outline" className="bg-amber-500/10 text-amber-500 border-amber-500/20"><Clock className="w-3 h-3 mr-1"/> Pending</Badge>;
-      case "confirmed": return <Badge variant="outline" className="bg-blue-500/10 text-blue-500 border-blue-500/20"><CheckCircle2 className="w-3 h-3 mr-1"/> Confirmed</Badge>;
-      case "completed": return <Badge variant="outline" className="bg-emerald-500/10 text-emerald-500 border-emerald-500/20"><CheckCircle2 className="w-3 h-3 mr-1"/> Completed</Badge>;
-      case "cancelled": return <Badge variant="outline" className="bg-destructive/10 text-destructive border-destructive/20"><XCircle className="w-3 h-3 mr-1"/> Cancelled</Badge>;
-      default: return <Badge>{status}</Badge>;
+      case "pending": return <Badge variant="outline" className="bg-amber-50 text-amber-600 border-amber-200 rounded-full px-3 py-1 font-semibold"><Clock className="w-3 h-3 mr-1.5"/> Pending</Badge>;
+      case "confirmed": return <Badge variant="outline" className="bg-blue-50 text-[#3BA9F5] border-blue-200 rounded-full px-3 py-1 font-semibold"><CheckCircle2 className="w-3 h-3 mr-1.5"/> Confirmed</Badge>;
+      case "completed": return <Badge variant="outline" className="bg-green-50 text-green-600 border-green-200 rounded-full px-3 py-1 font-semibold"><CheckCircle2 className="w-3 h-3 mr-1.5"/> Completed</Badge>;
+      case "cancelled": return <Badge variant="outline" className="bg-red-50 text-red-600 border-red-200 rounded-full px-3 py-1 font-semibold"><XCircle className="w-3 h-3 mr-1.5"/> Cancelled</Badge>;
+      default: return <Badge className="rounded-full px-3 py-1">{status}</Badge>;
     }
   };
 
   if (statsLoading) {
     return (
-      <div className="min-h-screen bg-background flex items-center justify-center">
-        <Loader2 className="w-8 h-8 animate-spin text-primary" />
+      <div className="min-h-screen bg-[#F8FAFC] flex items-center justify-center">
+        <Loader2 className="w-8 h-8 animate-spin text-[#3BA9F5]" />
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-background flex flex-col md:flex-row dark">
+    <div className="min-h-screen bg-[#F8FAFC] flex flex-col md:flex-row">
       {/* Sidebar */}
-      <aside className="w-full md:w-64 bg-card border-r border-border shrink-0 flex flex-col">
-        <div className="p-6 border-b border-border">
-          <Link href="/" className="flex items-center gap-2 text-primary hover:opacity-80">
+      <aside className="w-full md:w-64 bg-white border-r border-slate-200 shrink-0 flex flex-col shadow-sm">
+        <div className="p-6 border-b border-slate-100">
+          <Link href="/" className="flex items-center gap-2 text-[#3BA9F5] hover:opacity-80">
             <PawPrint className="w-6 h-6" />
-            <span className="font-serif text-xl font-bold">Admin Panel</span>
+            <span className="font-serif text-xl font-bold text-[#1F2937]">Admin</span>
           </Link>
         </div>
         <div className="p-4 flex-1">
@@ -102,10 +101,10 @@ export default function AdminDashboard() {
               <button
                 key={item.id}
                 onClick={() => setActiveTab(item.id)}
-                className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
+                className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold transition-colors ${
                   activeTab === item.id 
-                    ? "bg-primary text-primary-foreground" 
-                    : "text-muted-foreground hover:bg-muted"
+                    ? "bg-[#3BA9F5] text-white shadow-sm" 
+                    : "text-[#64748B] hover:bg-slate-50 hover:text-[#1F2937]"
                 }`}
               >
                 <item.icon className="w-5 h-5" />
@@ -114,8 +113,8 @@ export default function AdminDashboard() {
             ))}
           </nav>
         </div>
-        <div className="p-4 border-t border-border">
-          <Button variant="ghost" className="w-full justify-start text-muted-foreground" asChild>
+        <div className="p-4 border-t border-slate-100">
+          <Button variant="ghost" className="w-full justify-start text-[#64748B] hover:bg-slate-50 rounded-xl" asChild>
             <Link href="/">
               <LogOut className="w-5 h-5 mr-2" />
               Back to Site
@@ -128,101 +127,101 @@ export default function AdminDashboard() {
       <main className="flex-1 overflow-auto">
         <div className="p-8">
           <div className="mb-8">
-            <h1 className="text-3xl font-serif font-bold text-foreground">Dashboard Overview</h1>
-            <p className="text-muted-foreground mt-2">Manage clinic operations and requests.</p>
+            <h1 className="text-3xl font-serif font-bold text-[#1F2937]">Overview</h1>
+            <p className="text-[#64748B] mt-2 font-medium">Manage clinic operations and requests.</p>
           </div>
 
           {/* Stats Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-            <div className="bg-card border border-border p-6 rounded-xl">
+            <div className="bg-white border-t-4 border-t-[#3BA9F5] shadow-sm p-6 rounded-2xl">
               <div className="flex items-center gap-4 mb-2">
-                <div className="p-3 bg-primary/10 rounded-lg text-primary">
+                <div className="p-3 bg-blue-50 rounded-xl text-[#3BA9F5]">
                   <Calendar className="w-6 h-6" />
                 </div>
                 <div>
-                  <p className="text-sm text-muted-foreground font-medium">Total Appointments</p>
-                  <p className="text-2xl font-bold">{stats?.totalAppointments || 0}</p>
+                  <p className="text-sm text-[#64748B] font-semibold">Appointments</p>
+                  <p className="text-3xl font-bold text-[#1F2937]">{stats?.totalAppointments || 0}</p>
                 </div>
               </div>
             </div>
-            <div className="bg-card border border-border p-6 rounded-xl">
+            <div className="bg-white border-t-4 border-t-purple-500 shadow-sm p-6 rounded-2xl">
               <div className="flex items-center gap-4 mb-2">
-                <div className="p-3 bg-secondary/10 rounded-lg text-secondary">
+                <div className="p-3 bg-purple-50 rounded-xl text-purple-500">
                   <Car className="w-6 h-6" />
                 </div>
                 <div>
-                  <p className="text-sm text-muted-foreground font-medium">Pet Taxi Bookings</p>
-                  <p className="text-2xl font-bold">{stats?.totalPetTaxiBookings || 0}</p>
+                  <p className="text-sm text-[#64748B] font-semibold">Pet Taxi Bookings</p>
+                  <p className="text-3xl font-bold text-[#1F2937]">{stats?.totalPetTaxiBookings || 0}</p>
                 </div>
               </div>
             </div>
-            <div className="bg-card border border-border p-6 rounded-xl">
+            <div className="bg-white border-t-4 border-t-orange-400 shadow-sm p-6 rounded-2xl">
               <div className="flex items-center gap-4 mb-2">
-                <div className="p-3 bg-blue-500/10 rounded-lg text-blue-500">
+                <div className="p-3 bg-orange-50 rounded-xl text-orange-400">
                   <Clock className="w-6 h-6" />
                 </div>
                 <div>
-                  <p className="text-sm text-muted-foreground font-medium">Pending Requests</p>
-                  <p className="text-2xl font-bold">{(stats?.pendingAppointments || 0) + (stats?.pendingPetTaxiBookings || 0)}</p>
+                  <p className="text-sm text-[#64748B] font-semibold">Pending Requests</p>
+                  <p className="text-3xl font-bold text-[#1F2937]">{(stats?.pendingAppointments || 0) + (stats?.pendingPetTaxiBookings || 0)}</p>
                 </div>
               </div>
             </div>
-            <div className="bg-card border border-border p-6 rounded-xl">
+            <div className="bg-white border-t-4 border-t-green-500 shadow-sm p-6 rounded-2xl">
               <div className="flex items-center gap-4 mb-2">
-                <div className="p-3 bg-emerald-500/10 rounded-lg text-emerald-500">
+                <div className="p-3 bg-green-50 rounded-xl text-green-500">
                   <MessageSquare className="w-6 h-6" />
                 </div>
                 <div>
-                  <p className="text-sm text-muted-foreground font-medium">Contact Leads</p>
-                  <p className="text-2xl font-bold">{stats?.totalContactLeads || 0}</p>
+                  <p className="text-sm text-[#64748B] font-semibold">Contact Leads</p>
+                  <p className="text-3xl font-bold text-[#1F2937]">{stats?.totalContactLeads || 0}</p>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="bg-card border border-border rounded-xl shadow-sm overflow-hidden">
+          <div className="bg-white rounded-[2rem] shadow-sm overflow-hidden border border-slate-100">
             {activeTab === "appointments" && (
               <div>
-                <div className="p-6 border-b border-border flex justify-between items-center bg-muted/20">
-                  <h2 className="text-xl font-bold">Appointments</h2>
+                <div className="p-6 border-b border-slate-100 flex justify-between items-center">
+                  <h2 className="text-xl font-bold text-[#1F2937]">Appointments</h2>
                   <div className="relative w-64">
-                    <Search className="w-4 h-4 absolute left-3 top-3 text-muted-foreground" />
-                    <Input placeholder="Search..." className="pl-9 bg-background" />
+                    <Search className="w-4 h-4 absolute left-3 top-3.5 text-[#64748B]" />
+                    <Input placeholder="Search..." className="pl-9 bg-[#F8FAFC] border-none rounded-full h-11" />
                   </div>
                 </div>
                 <div className="overflow-x-auto">
                   <table className="w-full text-sm text-left">
-                    <thead className="bg-muted text-muted-foreground text-xs uppercase font-semibold">
+                    <thead className="bg-[#F8FAFC] text-[#64748B] text-xs uppercase font-bold tracking-wider">
                       <tr>
-                        <th className="px-6 py-4">Client & Pet</th>
-                        <th className="px-6 py-4">Service</th>
-                        <th className="px-6 py-4">Date & Time</th>
-                        <th className="px-6 py-4">Status</th>
-                        <th className="px-6 py-4 text-right">Actions</th>
+                        <th className="px-6 py-5">Client & Pet</th>
+                        <th className="px-6 py-5">Service</th>
+                        <th className="px-6 py-5">Date & Time</th>
+                        <th className="px-6 py-5">Status</th>
+                        <th className="px-6 py-5 text-right">Actions</th>
                       </tr>
                     </thead>
-                    <tbody className="divide-y divide-border">
+                    <tbody className="divide-y divide-slate-100">
                       {apptsLoading ? (
-                        <tr><td colSpan={5} className="text-center py-8"><Loader2 className="w-6 h-6 animate-spin mx-auto text-primary" /></td></tr>
+                        <tr><td colSpan={5} className="text-center py-12"><Loader2 className="w-8 h-8 animate-spin mx-auto text-[#3BA9F5]" /></td></tr>
                       ) : appointments?.length === 0 ? (
-                        <tr><td colSpan={5} className="text-center py-8 text-muted-foreground">No appointments found.</td></tr>
+                        <tr><td colSpan={5} className="text-center py-12 text-[#64748B] font-medium">No appointments found.</td></tr>
                       ) : (
                         appointments?.map((appt) => (
-                          <tr key={appt.id} className="hover:bg-muted/30">
+                          <tr key={appt.id} className="hover:bg-slate-50 transition-colors">
                             <td className="px-6 py-4">
-                              <p className="font-bold text-foreground">{appt.ownerName}</p>
-                              <p className="text-muted-foreground text-xs">{appt.petName} ({appt.petType})</p>
-                              <p className="text-muted-foreground text-xs mt-1">{appt.ownerPhone}</p>
+                              <p className="font-bold text-[#1F2937] text-base">{appt.ownerName}</p>
+                              <p className="text-[#64748B] font-medium mt-0.5">{appt.petName} ({appt.petType})</p>
+                              <p className="text-slate-500 text-xs mt-1">{appt.ownerPhone}</p>
                             </td>
-                            <td className="px-6 py-4 font-medium">{appt.serviceType}</td>
+                            <td className="px-6 py-4 font-semibold text-[#1F2937]">{appt.serviceType}</td>
                             <td className="px-6 py-4">
-                              <p>{format(new Date(appt.preferredDate), "MMM d, yyyy")}</p>
-                              <p className="text-muted-foreground">{appt.preferredTime || "Any time"}</p>
+                              <p className="font-bold text-[#1F2937]">{format(new Date(appt.preferredDate), "MMM d, yyyy")}</p>
+                              <p className="text-[#64748B] font-medium">{appt.preferredTime || "Any time"}</p>
                             </td>
                             <td className="px-6 py-4">{getStatusBadge(appt.status)}</td>
                             <td className="px-6 py-4 text-right">
                               <Select defaultValue={appt.status} onValueChange={(val) => handleUpdateApptStatus(appt.id, val)}>
-                                <SelectTrigger className="w-[130px] ml-auto h-8 text-xs">
+                                <SelectTrigger className="w-[140px] ml-auto h-10 rounded-xl border-slate-200 focus:border-[#3BA9F5] font-semibold text-[#1F2937]">
                                   <SelectValue />
                                 </SelectTrigger>
                                 <SelectContent>
@@ -244,46 +243,46 @@ export default function AdminDashboard() {
 
             {activeTab === "pet-taxi" && (
               <div>
-                <div className="p-6 border-b border-border flex justify-between items-center bg-muted/20">
-                  <h2 className="text-xl font-bold">Pet Taxi Bookings</h2>
+                <div className="p-6 border-b border-slate-100 flex justify-between items-center">
+                  <h2 className="text-xl font-bold text-[#1F2937]">Pet Taxi Bookings</h2>
                 </div>
                 <div className="overflow-x-auto">
                   <table className="w-full text-sm text-left">
-                    <thead className="bg-muted text-muted-foreground text-xs uppercase font-semibold">
+                    <thead className="bg-[#F8FAFC] text-[#64748B] text-xs uppercase font-bold tracking-wider">
                       <tr>
-                        <th className="px-6 py-4">Client & Pet</th>
-                        <th className="px-6 py-4">Route</th>
-                        <th className="px-6 py-4">Date & Time</th>
-                        <th className="px-6 py-4">Status</th>
-                        <th className="px-6 py-4 text-right">Actions</th>
+                        <th className="px-6 py-5">Client & Pet</th>
+                        <th className="px-6 py-5">Route</th>
+                        <th className="px-6 py-5">Date & Time</th>
+                        <th className="px-6 py-5">Status</th>
+                        <th className="px-6 py-5 text-right">Actions</th>
                       </tr>
                     </thead>
-                    <tbody className="divide-y divide-border">
+                    <tbody className="divide-y divide-slate-100">
                       {taxiLoading ? (
-                        <tr><td colSpan={5} className="text-center py-8"><Loader2 className="w-6 h-6 animate-spin mx-auto text-primary" /></td></tr>
+                        <tr><td colSpan={5} className="text-center py-12"><Loader2 className="w-8 h-8 animate-spin mx-auto text-[#3BA9F5]" /></td></tr>
                       ) : petTaxis?.length === 0 ? (
-                        <tr><td colSpan={5} className="text-center py-8 text-muted-foreground">No bookings found.</td></tr>
+                        <tr><td colSpan={5} className="text-center py-12 text-[#64748B] font-medium">No bookings found.</td></tr>
                       ) : (
                         petTaxis?.map((taxi) => (
-                          <tr key={taxi.id} className="hover:bg-muted/30">
+                          <tr key={taxi.id} className="hover:bg-slate-50 transition-colors">
                             <td className="px-6 py-4">
-                              <p className="font-bold text-foreground">{taxi.ownerName}</p>
-                              <p className="text-muted-foreground text-xs">{taxi.petName} ({taxi.petType})</p>
+                              <p className="font-bold text-[#1F2937] text-base">{taxi.ownerName}</p>
+                              <p className="text-[#64748B] font-medium mt-0.5">{taxi.petName} ({taxi.petType})</p>
                             </td>
                             <td className="px-6 py-4">
-                              <div className="flex flex-col gap-1 max-w-[200px]">
-                                <span className="text-xs text-muted-foreground truncate" title={taxi.pickupAddress}>From: {taxi.pickupAddress}</span>
-                                <span className="text-xs text-muted-foreground truncate" title={taxi.dropoffAddress}>To: {taxi.dropoffAddress}</span>
+                              <div className="flex flex-col gap-1.5 max-w-[250px]">
+                                <span className="text-xs text-slate-500 font-medium truncate bg-slate-100 px-2 py-1 rounded" title={taxi.pickupAddress}>A: {taxi.pickupAddress}</span>
+                                <span className="text-xs text-slate-500 font-medium truncate bg-slate-100 px-2 py-1 rounded" title={taxi.dropoffAddress}>B: {taxi.dropoffAddress}</span>
                               </div>
                             </td>
                             <td className="px-6 py-4">
-                              <p>{format(new Date(taxi.pickupDate), "MMM d, yyyy")}</p>
-                              <p className="text-muted-foreground">{taxi.pickupTime || "Any time"}</p>
+                              <p className="font-bold text-[#1F2937]">{format(new Date(taxi.pickupDate), "MMM d, yyyy")}</p>
+                              <p className="text-[#64748B] font-medium">{taxi.pickupTime || "Any time"}</p>
                             </td>
                             <td className="px-6 py-4">{getStatusBadge(taxi.status)}</td>
                             <td className="px-6 py-4 text-right">
                               <Select defaultValue={taxi.status} onValueChange={(val) => handleUpdateTaxiStatus(taxi.id, val)}>
-                                <SelectTrigger className="w-[130px] ml-auto h-8 text-xs">
+                                <SelectTrigger className="w-[140px] ml-auto h-10 rounded-xl border-slate-200 focus:border-[#3BA9F5] font-semibold text-[#1F2937]">
                                   <SelectValue />
                                 </SelectTrigger>
                                 <SelectContent>
@@ -305,38 +304,38 @@ export default function AdminDashboard() {
 
             {activeTab === "leads" && (
               <div>
-                <div className="p-6 border-b border-border flex justify-between items-center bg-muted/20">
-                  <h2 className="text-xl font-bold">Contact Leads</h2>
+                <div className="p-6 border-b border-slate-100 flex justify-between items-center">
+                  <h2 className="text-xl font-bold text-[#1F2937]">Contact Leads</h2>
                 </div>
                 <div className="overflow-x-auto">
                   <table className="w-full text-sm text-left">
-                    <thead className="bg-muted text-muted-foreground text-xs uppercase font-semibold">
+                    <thead className="bg-[#F8FAFC] text-[#64748B] text-xs uppercase font-bold tracking-wider">
                       <tr>
-                        <th className="px-6 py-4">Date</th>
-                        <th className="px-6 py-4">Name & Contact</th>
-                        <th className="px-6 py-4">Subject</th>
-                        <th className="px-6 py-4">Message</th>
+                        <th className="px-6 py-5">Date</th>
+                        <th className="px-6 py-5">Name & Contact</th>
+                        <th className="px-6 py-5">Subject</th>
+                        <th className="px-6 py-5">Message</th>
                       </tr>
                     </thead>
-                    <tbody className="divide-y divide-border">
+                    <tbody className="divide-y divide-slate-100">
                       {leadsLoading ? (
-                        <tr><td colSpan={4} className="text-center py-8"><Loader2 className="w-6 h-6 animate-spin mx-auto text-primary" /></td></tr>
+                        <tr><td colSpan={4} className="text-center py-12"><Loader2 className="w-8 h-8 animate-spin mx-auto text-[#3BA9F5]" /></td></tr>
                       ) : leads?.length === 0 ? (
-                        <tr><td colSpan={4} className="text-center py-8 text-muted-foreground">No leads found.</td></tr>
+                        <tr><td colSpan={4} className="text-center py-12 text-[#64748B] font-medium">No leads found.</td></tr>
                       ) : (
                         leads?.map((lead) => (
-                          <tr key={lead.id} className="hover:bg-muted/30">
-                            <td className="px-6 py-4 whitespace-nowrap text-muted-foreground">
+                          <tr key={lead.id} className="hover:bg-slate-50 transition-colors">
+                            <td className="px-6 py-4 whitespace-nowrap text-[#64748B] font-medium">
                               {format(new Date(lead.createdAt), "MMM d, yyyy HH:mm")}
                             </td>
                             <td className="px-6 py-4">
-                              <p className="font-bold text-foreground">{lead.name}</p>
-                              <p className="text-xs text-primary"><a href={`mailto:${lead.email}`}>{lead.email}</a></p>
-                              {lead.phone && <p className="text-xs text-muted-foreground mt-0.5">{lead.phone}</p>}
+                              <p className="font-bold text-[#1F2937] text-base">{lead.name}</p>
+                              <p className="text-sm font-medium text-[#3BA9F5] mt-0.5"><a href={`mailto:${lead.email}`}>{lead.email}</a></p>
+                              {lead.phone && <p className="text-xs text-slate-500 font-medium mt-1 bg-slate-100 inline-block px-2 py-0.5 rounded">{lead.phone}</p>}
                             </td>
-                            <td className="px-6 py-4 font-medium">{lead.subject}</td>
+                            <td className="px-6 py-4 font-bold text-[#1F2937]">{lead.subject}</td>
                             <td className="px-6 py-4">
-                              <p className="text-muted-foreground line-clamp-2 max-w-md" title={lead.message}>
+                              <p className="text-[#64748B] line-clamp-2 max-w-md font-medium leading-relaxed" title={lead.message}>
                                 {lead.message}
                               </p>
                             </td>

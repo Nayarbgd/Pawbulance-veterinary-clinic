@@ -2,7 +2,6 @@ import { useState, ReactNode } from "react";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useCreatePetTaxiBooking } from "@workspace/api-client-react";
@@ -81,28 +80,30 @@ export function PetTaxiDialog({ children }: PetTaxiDialogProps) {
       <DialogTrigger asChild>
         {children}
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[500px] max-h-[90vh] overflow-y-auto">
-        <DialogHeader>
-          <DialogTitle className="font-serif text-2xl text-secondary flex items-center gap-2">
-            <Car className="w-6 h-6" />
+      <DialogContent className="sm:max-w-[500px] max-h-[90vh] overflow-y-auto bg-white rounded-[2rem] p-8 border border-slate-100">
+        <DialogHeader className="mb-4">
+          <DialogTitle className="font-serif text-3xl font-bold text-[#1F2937] flex items-center gap-3">
+            <div className="w-10 h-10 bg-blue-50 rounded-xl flex items-center justify-center">
+              <Car className="w-6 h-6 text-[#3BA9F5]" />
+            </div>
             Reserve Pet Taxi
           </DialogTitle>
-          <DialogDescription>
+          <DialogDescription className="text-[#64748B] text-base">
             Schedule a comfortable and safe ride for your pet.
           </DialogDescription>
         </DialogHeader>
 
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 pt-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               <FormField
                 control={form.control}
                 name="ownerName"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Your Name</FormLabel>
+                    <FormLabel className="text-[#1F2937] font-semibold">Your Name</FormLabel>
                     <FormControl>
-                      <Input placeholder="John Doe" {...field} />
+                      <Input className="rounded-xl border-slate-200 focus:border-[#3BA9F5] h-12" placeholder="John Doe" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -113,9 +114,9 @@ export function PetTaxiDialog({ children }: PetTaxiDialogProps) {
                 name="ownerPhone"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Phone Number</FormLabel>
+                    <FormLabel className="text-[#1F2937] font-semibold">Phone Number</FormLabel>
                     <FormControl>
-                      <Input placeholder="+971 50 000 0000" {...field} />
+                      <Input className="rounded-xl border-slate-200 focus:border-[#3BA9F5] h-12" placeholder="+971 50 000 0000" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -128,24 +129,24 @@ export function PetTaxiDialog({ children }: PetTaxiDialogProps) {
               name="ownerEmail"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Email Address</FormLabel>
+                  <FormLabel className="text-[#1F2937] font-semibold">Email Address</FormLabel>
                   <FormControl>
-                    <Input type="email" placeholder="john@example.com" {...field} />
+                    <Input className="rounded-xl border-slate-200 focus:border-[#3BA9F5] h-12" type="email" placeholder="john@example.com" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
               )}
             />
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               <FormField
                 control={form.control}
                 name="petName"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Pet's Name</FormLabel>
+                    <FormLabel className="text-[#1F2937] font-semibold">Pet's Name</FormLabel>
                     <FormControl>
-                      <Input placeholder="Luna" {...field} />
+                      <Input className="rounded-xl border-slate-200 focus:border-[#3BA9F5] h-12" placeholder="Luna" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -156,10 +157,10 @@ export function PetTaxiDialog({ children }: PetTaxiDialogProps) {
                 name="petType"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Pet Type</FormLabel>
+                    <FormLabel className="text-[#1F2937] font-semibold">Pet Type</FormLabel>
                     <Select onValueChange={field.onChange} defaultValue={field.value}>
                       <FormControl>
-                        <SelectTrigger>
+                        <SelectTrigger className="rounded-xl border-slate-200 focus:border-[#3BA9F5] h-12">
                           <SelectValue placeholder="Select type" />
                         </SelectTrigger>
                       </FormControl>
@@ -181,9 +182,9 @@ export function PetTaxiDialog({ children }: PetTaxiDialogProps) {
               name="pickupAddress"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Pickup Address</FormLabel>
+                  <FormLabel className="text-[#1F2937] font-semibold">Pickup Address</FormLabel>
                   <FormControl>
-                    <Input placeholder="Building, Street, Area" {...field} />
+                    <Input className="rounded-xl border-slate-200 focus:border-[#3BA9F5] h-12" placeholder="Building, Street, Area" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -195,24 +196,24 @@ export function PetTaxiDialog({ children }: PetTaxiDialogProps) {
               name="dropoffAddress"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Dropoff Address</FormLabel>
+                  <FormLabel className="text-[#1F2937] font-semibold">Dropoff Address</FormLabel>
                   <FormControl>
-                    <Input placeholder="Destination" {...field} />
+                    <Input className="rounded-xl border-slate-200 focus:border-[#3BA9F5] h-12" placeholder="Destination" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
               )}
             />
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               <FormField
                 control={form.control}
                 name="pickupDate"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Pickup Date</FormLabel>
+                    <FormLabel className="text-[#1F2937] font-semibold">Pickup Date</FormLabel>
                     <FormControl>
-                      <Input type="date" {...field} />
+                      <Input className="rounded-xl border-slate-200 focus:border-[#3BA9F5] h-12" type="date" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -223,9 +224,9 @@ export function PetTaxiDialog({ children }: PetTaxiDialogProps) {
                 name="pickupTime"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Pickup Time (Optional)</FormLabel>
+                    <FormLabel className="text-[#1F2937] font-semibold">Pickup Time (Optional)</FormLabel>
                     <FormControl>
-                      <Input type="time" {...field} />
+                      <Input className="rounded-xl border-slate-200 focus:border-[#3BA9F5] h-12" type="time" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -238,11 +239,11 @@ export function PetTaxiDialog({ children }: PetTaxiDialogProps) {
               name="notes"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Additional Notes</FormLabel>
+                  <FormLabel className="text-[#1F2937] font-semibold">Additional Notes</FormLabel>
                   <FormControl>
                     <Textarea 
                       placeholder="Any specific transport requirements?" 
-                      className="resize-none" 
+                      className="resize-none rounded-xl border-slate-200 focus:border-[#3BA9F5]" 
                       {...field} 
                     />
                   </FormControl>
@@ -253,10 +254,10 @@ export function PetTaxiDialog({ children }: PetTaxiDialogProps) {
 
             <Button 
               type="submit" 
-              className="w-full bg-secondary hover:bg-secondary/90 text-secondary-foreground"
+              className="w-full h-14 bg-[#3BA9F5] hover:bg-[#2D96E5] text-white rounded-xl font-bold text-lg shadow-sm"
               disabled={createBooking.isPending}
             >
-              {createBooking.isPending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+              {createBooking.isPending && <Loader2 className="mr-2 h-5 w-5 animate-spin" />}
               Reserve Pet Taxi
             </Button>
           </form>

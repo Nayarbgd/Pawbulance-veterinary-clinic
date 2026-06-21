@@ -1,0 +1,331 @@
+COMPLETE VISUAL REDESIGN.
+
+DO NOT CHANGE:
+- Business information
+- Content
+- Sections
+- Routing
+- Backend
+- Forms
+- SEO implementation
+- Functionality
+
+ONLY REDESIGN THE ENTIRE VISUAL IDENTITY.
+
+The current website looks like a luxury hotel or high-end restaurant. This does NOT match the real Pawbulance brand.
+
+Study the uploaded Instagram screenshots and make the website visually consistent with them.
+
+=========================
+NEW BRAND DIRECTION
+=========================
+
+Brand personality:
+
+- Friendly
+- Warm
+- Caring
+- Professional
+- Family-oriented
+- Clean
+- Modern veterinary clinic
+- Soft and approachable
+- Premium care, NOT luxury
+
+The website should make pet owners feel:
+
+"I trust these people with my pet."
+
+NOT:
+
+"This is an expensive luxury hotel."
+
+=========================
+COLOR SYSTEM
+=========================
+
+Primary Blue:
+#3BA9F5
+
+Secondary Blue:
+#6CC7FF
+
+Light Blue:
+#EAF7FF
+
+Warm Beige:
+#F5F1E8
+
+Soft Sand:
+#F7E9D3
+
+White:
+#FFFFFF
+
+Light Gray:
+#F8FAFC
+
+Dark Text:
+#1F2937
+
+Secondary Text:
+#64748B
+
+Success Green:
+#34D399
+
+Remove:
+
+❌ black backgrounds
+❌ dark luxury gradients
+❌ gold colors
+❌ orange luxury effects
+❌ dramatic shadows
+❌ dark cinematic overlays
+
+=========================
+VISUAL STYLE
+=========================
+
+The website should feel similar to:
+
+- Modern veterinary clinics
+- Children's hospitals
+- Apple-like cleanliness
+- Friendly medical websites
+- Pet wellness brands
+
+Use:
+
+✔ lots of white space
+✔ soft blue accents
+✔ rounded corners
+✔ light cards
+✔ subtle shadows
+✔ bright photography
+✔ large margins
+✔ soft gradients
+✔ airy layouts
+
+No dark mode.
+
+=========================
+HEADER
+=========================
+
+White background.
+
+Very subtle shadow.
+
+Logo left.
+
+CTA button:
+
+Background:
+#3BA9F5
+
+Hover:
+#2D96E5
+
+Rounded:
+999px
+
+=========================
+HERO SECTION
+=========================
+
+Background:
+
+White with very subtle blue gradients.
+
+Example:
+
+linear-gradient(
+180deg,
+#FFFFFF 0%,
+#F7FBFF 100%
+)
+
+Add soft floating circles and paw elements with very low opacity.
+
+Hero image should use:
+
+happy pets
+veterinarian with pet
+friendly clinic photography
+
+No dark overlays.
+
+No luxury hotel images.
+
+Typography:
+
+Main heading:
+dark navy (#1F2937)
+
+Accent words:
+#3BA9F5
+
+Subheadline:
+#64748B
+
+Buttons:
+
+Primary:
+Blue
+
+Secondary:
+White with blue border.
+
+=========================
+SECTIONS
+=========================
+
+All sections should alternate:
+
+White
+Light blue (#F7FBFF)
+
+Cards:
+
+background:
+#FFFFFF
+
+border radius:
+24px
+
+shadow:
+very soft
+
+padding:
+generous
+
+=========================
+SERVICES
+=========================
+
+Service cards should look friendly.
+
+Use illustrated veterinary icons.
+
+Hover:
+
+slight lift
+soft blue shadow
+
+NOT glowing gold effects.
+
+=========================
+TESTIMONIALS
+=========================
+
+White cards.
+
+Pet owner photos.
+
+Pet names.
+
+Soft blue quote icons.
+
+Friendly appearance.
+
+=========================
+PET TAXI SECTION
+=========================
+
+Use:
+
+light blue
+soft green
+friendly transportation illustrations
+
+Emphasize:
+
+safe transport
+stress-free travel
+door-to-door service
+
+Avoid luxury language.
+
+=========================
+CONTACT SECTION
+=========================
+
+Bright.
+
+Clean.
+
+Google Maps card.
+
+Soft blue inputs.
+
+Large WhatsApp button.
+
+Rounded form.
+
+=========================
+FOOTER
+=========================
+
+Background:
+#F8FAFC
+
+NOT black.
+
+Dark text.
+
+Blue icons.
+
+Simple and friendly.
+
+=========================
+TYPOGRAPHY
+=========================
+
+Use:
+
+Headings:
+Poppins SemiBold
+
+Body:
+Inter
+
+Avoid luxury serif fonts.
+
+Remove:
+Playfair Display
+luxury typography
+hotel aesthetics
+
+=========================
+ANIMATIONS
+=========================
+
+Subtle:
+
+fade-up
+small scale
+gentle hover
+
+No dramatic effects.
+
+=========================
+FINAL GOAL
+=========================
+
+The website should feel like:
+
+"A premium but friendly veterinary clinic in JBR where pet owners immediately trust the staff and feel their pets will be cared for."
+
+The website should visually match the Instagram branding and color palette.
+
+Think:
+70% modern veterinary clinic
+20% medical wellness
+10% premium
+
+NOT:
+luxury hotel
+fine dining
+dark spa
+expensive restaurant

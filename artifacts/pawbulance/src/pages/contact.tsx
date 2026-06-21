@@ -26,7 +26,6 @@ export default function Contact() {
   }, []);
 
   const { toast } = useToast();
-
   const submitContact = useSubmitContact();
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -61,10 +60,10 @@ export default function Contact() {
 
   return (
     <MainLayout>
-      <div className="container mx-auto px-4 py-20">
-        <div className="max-w-3xl mx-auto text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-serif font-bold mb-6">Get in Touch</h1>
-          <p className="text-lg text-muted-foreground">
+      <div className="bg-white container mx-auto px-4 py-24">
+        <div className="max-w-3xl mx-auto text-center mb-20">
+          <h1 className="text-4xl md:text-5xl font-serif font-extrabold mb-6 text-[#1F2937]">Get in Touch</h1>
+          <p className="text-lg text-[#64748B]">
             Have a question or want to schedule a visit? We're here to help. Reach out to us via phone, WhatsApp, or the form below.
           </p>
         </div>
@@ -72,50 +71,50 @@ export default function Contact() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
           {/* Contact Info */}
           <div className="space-y-8">
-            <div className="bg-card border border-border p-8 rounded-3xl">
-              <h2 className="font-serif text-2xl font-bold mb-6">Contact Information</h2>
-              <div className="space-y-6">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-                    <MapPin className="w-6 h-6 text-primary" />
+            <div className="bg-white shadow-sm border border-slate-100 p-10 rounded-[2rem]">
+              <h2 className="font-serif text-2xl font-bold mb-8 text-[#1F2937]">Contact Information</h2>
+              <div className="space-y-8">
+                <div className="flex items-start gap-5">
+                  <div className="w-14 h-14 rounded-2xl bg-blue-50 flex items-center justify-center shrink-0">
+                    <MapPin className="w-7 h-7 text-[#3BA9F5]" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-foreground">Clinic Address</h3>
-                    <p className="text-muted-foreground mt-1 leading-relaxed">
+                    <h3 className="font-bold text-[#1F2937] text-lg">Clinic Address</h3>
+                    <p className="text-[#64748B] mt-2 leading-relaxed">
                       Amwaj 2, Al Mamsha Street<br />
                       Jumeirah Beach Residence (JBR)<br />
                       Dubai, UAE
                     </p>
-                    <Button variant="link" className="px-0 mt-2 text-primary" asChild>
+                    <Button variant="link" className="px-0 mt-2 font-bold text-[#3BA9F5]" asChild>
                       <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer">Get Directions</a>
                     </Button>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-                    <Phone className="w-6 h-6 text-primary" />
+                <div className="flex items-start gap-5">
+                  <div className="w-14 h-14 rounded-2xl bg-blue-50 flex items-center justify-center shrink-0">
+                    <Phone className="w-7 h-7 text-[#3BA9F5]" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-foreground">Phone & WhatsApp</h3>
-                    <p className="text-muted-foreground mt-1">
-                      <a href="tel:+971547371109" className="hover:text-primary transition-colors block">+971 54 737 1109</a>
-                      <a href="https://wa.me/971547371109" className="text-primary hover:underline mt-1 block">Chat on WhatsApp</a>
+                    <h3 className="font-bold text-[#1F2937] text-lg">Phone & WhatsApp</h3>
+                    <p className="text-[#64748B] mt-2 space-y-2">
+                      <a href="tel:+971547371109" className="font-medium hover:text-[#3BA9F5] transition-colors block">+971 54 737 1109</a>
+                      <a href="https://wa.me/971547371109" className="font-bold text-[#25D366] hover:underline block">Chat on WhatsApp</a>
                     </p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-                    <Clock className="w-6 h-6 text-primary" />
+                <div className="flex items-start gap-5">
+                  <div className="w-14 h-14 rounded-2xl bg-blue-50 flex items-center justify-center shrink-0">
+                    <Clock className="w-7 h-7 text-[#3BA9F5]" />
                   </div>
                   <div className="w-full">
-                    <h3 className="font-bold text-foreground mb-2">Opening Hours</h3>
-                    <ul className="space-y-2 text-sm text-muted-foreground w-full max-w-[250px]">
-                      <li className="flex justify-between"><span>Monday</span><span>9:30 AM – 6:30 PM</span></li>
-                      <li className="flex justify-between text-destructive"><span>Tuesday</span><span>CLOSED</span></li>
-                      <li className="flex justify-between"><span>Wednesday</span><span>9:30 AM – 6:00 PM</span></li>
-                      <li className="flex justify-between"><span>Thu - Sun</span><span>9:30 AM – 6:30 PM</span></li>
+                    <h3 className="font-bold text-[#1F2937] text-lg mb-4">Opening Hours</h3>
+                    <ul className="space-y-3 text-sm text-[#64748B] w-full max-w-[300px]">
+                      <li className="flex justify-between font-medium"><span>Monday</span><span>9:30 AM – 6:30 PM</span></li>
+                      <li className="flex justify-between text-red-500 font-bold border-y border-slate-100 py-2"><span>Tuesday</span><span>CLOSED</span></li>
+                      <li className="flex justify-between font-medium"><span>Wednesday</span><span>9:30 AM – 6:00 PM</span></li>
+                      <li className="flex justify-between font-medium"><span>Thu - Sun</span><span>9:30 AM – 6:30 PM</span></li>
                     </ul>
                   </div>
                 </div>
@@ -123,43 +122,42 @@ export default function Contact() {
             </div>
 
             {/* Map Placeholder */}
-            <div className="h-[300px] bg-muted border border-border rounded-3xl overflow-hidden relative">
-              {/* Replace with actual iframe in production */}
-              <div className="absolute inset-0 flex items-center justify-center flex-col text-muted-foreground">
-                <MapPin className="w-8 h-8 mb-2" />
-                <span>Map Embed Location</span>
+            <div className="h-[300px] bg-[#EAF7FF] rounded-[2rem] overflow-hidden relative border border-blue-100">
+              <div className="absolute inset-0 flex items-center justify-center flex-col text-[#3BA9F5]">
+                <MapPin className="w-10 h-10 mb-3" />
+                <span className="font-bold">Map Area Location</span>
               </div>
             </div>
           </div>
 
           {/* Contact Form */}
-          <div className="bg-card border border-border p-8 rounded-3xl h-fit">
-            <h2 className="font-serif text-2xl font-bold mb-6">Send us a message</h2>
+          <div className="bg-white shadow-sm border border-slate-100 p-10 rounded-[2rem] h-fit">
+            <h2 className="font-serif text-2xl font-bold mb-8 text-[#1F2937]">Send us a message</h2>
             <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                 <FormField
                   control={form.control}
                   name="name"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Your Name</FormLabel>
+                      <FormLabel className="text-[#1F2937] font-semibold">Your Name</FormLabel>
                       <FormControl>
-                        <Input placeholder="John Doe" {...field} />
+                        <Input className="rounded-xl border-slate-200 focus:border-[#3BA9F5] h-12" placeholder="John Doe" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
                   )}
                 />
                 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <FormField
                     control={form.control}
                     name="email"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Email Address</FormLabel>
+                        <FormLabel className="text-[#1F2937] font-semibold">Email Address</FormLabel>
                         <FormControl>
-                          <Input type="email" placeholder="john@example.com" {...field} />
+                          <Input className="rounded-xl border-slate-200 focus:border-[#3BA9F5] h-12" type="email" placeholder="john@example.com" {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -170,9 +168,9 @@ export default function Contact() {
                     name="phone"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Phone Number (Optional)</FormLabel>
+                        <FormLabel className="text-[#1F2937] font-semibold">Phone Number (Optional)</FormLabel>
                         <FormControl>
-                          <Input placeholder="+971 50 000 0000" {...field} />
+                          <Input className="rounded-xl border-slate-200 focus:border-[#3BA9F5] h-12" placeholder="+971 50 000 0000" {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -185,9 +183,9 @@ export default function Contact() {
                   name="subject"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Subject</FormLabel>
+                      <FormLabel className="text-[#1F2937] font-semibold">Subject</FormLabel>
                       <FormControl>
-                        <Input placeholder="How can we help?" {...field} />
+                        <Input className="rounded-xl border-slate-200 focus:border-[#3BA9F5] h-12" placeholder="How can we help?" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -199,11 +197,11 @@ export default function Contact() {
                   name="message"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Message</FormLabel>
+                      <FormLabel className="text-[#1F2937] font-semibold">Message</FormLabel>
                       <FormControl>
                         <Textarea 
                           placeholder="Your message here..." 
-                          className="min-h-[150px] resize-none" 
+                          className="min-h-[150px] resize-none rounded-xl border-slate-200 focus:border-[#3BA9F5]" 
                           {...field} 
                         />
                       </FormControl>
@@ -214,7 +212,7 @@ export default function Contact() {
 
                 <Button 
                   type="submit" 
-                  className="w-full h-12 bg-primary hover:bg-primary/90 text-primary-foreground text-lg"
+                  className="w-full h-14 bg-[#3BA9F5] hover:bg-[#2D96E5] rounded-xl font-bold text-white text-lg shadow-sm"
                   disabled={submitContact.isPending}
                 >
                   {submitContact.isPending && <Loader2 className="mr-2 h-5 w-5 animate-spin" />}

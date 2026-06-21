@@ -2,7 +2,6 @@ import { useState, ReactNode } from "react";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useCreateAppointment } from "@workspace/api-client-react";
@@ -11,7 +10,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
-import { CalendarIcon, Loader2 } from "lucide-react";
+import { Loader2 } from "lucide-react";
 
 const formSchema = z.object({
   ownerName: z.string().min(2, "Name is required"),
@@ -79,25 +78,25 @@ export function AppointmentDialog({ children }: AppointmentDialogProps) {
       <DialogTrigger asChild>
         {children}
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[500px] max-h-[90vh] overflow-y-auto">
-        <DialogHeader>
-          <DialogTitle className="font-serif text-2xl text-primary">Book an Appointment</DialogTitle>
-          <DialogDescription>
+      <DialogContent className="sm:max-w-[500px] max-h-[90vh] overflow-y-auto bg-white rounded-[2rem] p-8 border border-slate-100">
+        <DialogHeader className="mb-4">
+          <DialogTitle className="font-serif text-3xl font-bold text-[#1F2937]">Book an Appointment</DialogTitle>
+          <DialogDescription className="text-[#64748B] text-base">
             Fill out the form below and we'll get back to you to confirm your visit.
           </DialogDescription>
         </DialogHeader>
 
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 pt-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               <FormField
                 control={form.control}
                 name="ownerName"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Your Name</FormLabel>
+                    <FormLabel className="text-[#1F2937] font-semibold">Your Name</FormLabel>
                     <FormControl>
-                      <Input placeholder="John Doe" {...field} />
+                      <Input className="rounded-xl border-slate-200 focus:border-[#3BA9F5] h-12" placeholder="John Doe" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -108,9 +107,9 @@ export function AppointmentDialog({ children }: AppointmentDialogProps) {
                 name="ownerPhone"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Phone Number</FormLabel>
+                    <FormLabel className="text-[#1F2937] font-semibold">Phone Number</FormLabel>
                     <FormControl>
-                      <Input placeholder="+971 50 000 0000" {...field} />
+                      <Input className="rounded-xl border-slate-200 focus:border-[#3BA9F5] h-12" placeholder="+971 50 000 0000" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -123,24 +122,24 @@ export function AppointmentDialog({ children }: AppointmentDialogProps) {
               name="ownerEmail"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Email Address</FormLabel>
+                  <FormLabel className="text-[#1F2937] font-semibold">Email Address</FormLabel>
                   <FormControl>
-                    <Input type="email" placeholder="john@example.com" {...field} />
+                    <Input className="rounded-xl border-slate-200 focus:border-[#3BA9F5] h-12" type="email" placeholder="john@example.com" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
               )}
             />
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               <FormField
                 control={form.control}
                 name="petName"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Pet's Name</FormLabel>
+                    <FormLabel className="text-[#1F2937] font-semibold">Pet's Name</FormLabel>
                     <FormControl>
-                      <Input placeholder="Luna" {...field} />
+                      <Input className="rounded-xl border-slate-200 focus:border-[#3BA9F5] h-12" placeholder="Luna" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -151,10 +150,10 @@ export function AppointmentDialog({ children }: AppointmentDialogProps) {
                 name="petType"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Pet Type</FormLabel>
+                    <FormLabel className="text-[#1F2937] font-semibold">Pet Type</FormLabel>
                     <Select onValueChange={field.onChange} defaultValue={field.value}>
                       <FormControl>
-                        <SelectTrigger>
+                        <SelectTrigger className="rounded-xl border-slate-200 focus:border-[#3BA9F5] h-12">
                           <SelectValue placeholder="Select type" />
                         </SelectTrigger>
                       </FormControl>
@@ -177,10 +176,10 @@ export function AppointmentDialog({ children }: AppointmentDialogProps) {
               name="serviceType"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Service Required</FormLabel>
+                  <FormLabel className="text-[#1F2937] font-semibold">Service Required</FormLabel>
                   <Select onValueChange={field.onChange} defaultValue={field.value}>
                     <FormControl>
-                      <SelectTrigger>
+                      <SelectTrigger className="rounded-xl border-slate-200 focus:border-[#3BA9F5] h-12">
                         <SelectValue placeholder="Select a service" />
                       </SelectTrigger>
                     </FormControl>
@@ -197,15 +196,15 @@ export function AppointmentDialog({ children }: AppointmentDialogProps) {
               )}
             />
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               <FormField
                 control={form.control}
                 name="preferredDate"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Preferred Date</FormLabel>
+                    <FormLabel className="text-[#1F2937] font-semibold">Preferred Date</FormLabel>
                     <FormControl>
-                      <Input type="date" {...field} />
+                      <Input className="rounded-xl border-slate-200 focus:border-[#3BA9F5] h-12" type="date" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -216,9 +215,9 @@ export function AppointmentDialog({ children }: AppointmentDialogProps) {
                 name="preferredTime"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Preferred Time (Optional)</FormLabel>
+                    <FormLabel className="text-[#1F2937] font-semibold">Preferred Time (Optional)</FormLabel>
                     <FormControl>
-                      <Input type="time" {...field} />
+                      <Input className="rounded-xl border-slate-200 focus:border-[#3BA9F5] h-12" type="time" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -231,11 +230,11 @@ export function AppointmentDialog({ children }: AppointmentDialogProps) {
               name="notes"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Additional Notes</FormLabel>
+                  <FormLabel className="text-[#1F2937] font-semibold">Additional Notes</FormLabel>
                   <FormControl>
                     <Textarea 
                       placeholder="Any specific concerns or symptoms?" 
-                      className="resize-none" 
+                      className="resize-none rounded-xl border-slate-200 focus:border-[#3BA9F5]" 
                       {...field} 
                     />
                   </FormControl>
@@ -246,10 +245,10 @@ export function AppointmentDialog({ children }: AppointmentDialogProps) {
 
             <Button 
               type="submit" 
-              className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
+              className="w-full h-14 bg-[#3BA9F5] hover:bg-[#2D96E5] text-white rounded-xl font-bold text-lg shadow-sm"
               disabled={createAppointment.isPending}
             >
-              {createAppointment.isPending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+              {createAppointment.isPending && <Loader2 className="mr-2 h-5 w-5 animate-spin" />}
               Request Appointment
             </Button>
           </form>
