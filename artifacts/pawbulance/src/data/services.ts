@@ -338,6 +338,46 @@ export const servicesData: ServiceData[] = [
     ],
     img: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=2070&auto=format&fit=crop",
   },
+  {
+    slug: "wellness-checkups",
+    title: "Wellness Checkups",
+    shortDesc: "Routine health exams for every life stage — from puppies and kittens to senior pets.",
+    heroHeading: "Pet Wellness Checkups in Dubai — Pawbulance JBR",
+    heroSub: "Regular wellness exams are the cornerstone of a long, healthy life for your pet. Our life-stage-specific checkups catch problems early and keep your pet thriving at every age.",
+    metaTitle: "Pet Wellness Checkups Dubai | Senior & Puppy Exams JBR | Pawbulance",
+    metaDescription: "Comprehensive pet wellness checkups at Pawbulance, JBR Dubai. Life-stage exams for puppies, kittens, adults, and senior pets. Blood panels, dental evaluations, and personalised health plans. Book now.",
+    keywords: "pet wellness checkup Dubai, puppy exam Dubai, kitten exam JBR, senior pet care Dubai, dog wellness exam Dubai Marina, cat health check JBR, pet blood panel Dubai",
+    whySection: {
+      heading: "Why Wellness Checkups Are the Foundation of Pet Health",
+      paragraphs: [
+        "Pets cannot tell you when something feels wrong. By the time symptoms appear — lethargy, weight loss, changes in behaviour — an underlying condition may already be well established. Routine wellness exams allow our veterinarians to detect problems before they become serious, when treatment is simpler, cheaper, and more effective.",
+        "Different life stages demand different care. A puppy or kitten needs guidance on nutrition, socialisation, parasite prevention, and a vaccination schedule. An adult pet needs monitoring of weight, dental health, and organ function. A senior pet benefits from more frequent exams and blood panels that catch age-related conditions early. At Pawbulance, our wellness checkups are specifically tailored to your pet's age, breed, and lifestyle.",
+        "Think of a wellness checkup as your annual roadmap for your pet's health. You leave with a clear picture of where your pet stands and a personalised plan covering everything from nutrition and dental hygiene to parasite prevention and the next recommended screenings.",
+      ],
+    },
+    benefits: [
+      { title: "Early Problem Detection", desc: "Identify hidden health issues before they become costly and painful to treat." },
+      { title: "Life-Stage Care", desc: "Tailored exams for puppies, adults, and seniors — each with different health priorities." },
+      { title: "Blood Panel Screening", desc: "Annual or bi-annual bloodwork to assess organ function and catch systemic disease early." },
+      { title: "Dental Evaluation", desc: "Oral health assessment at every visit — dental disease is the most commonly missed condition." },
+      { title: "Weight & Nutrition Review", desc: "Maintain your pet at an ideal weight with expert, breed-specific dietary guidance." },
+      { title: "Personalised Health Plan", desc: "Leave with a written health roadmap covering vaccines, parasite control, and next visits." },
+    ],
+    process: [
+      { step: "01", title: "Book Your Exam", desc: "Schedule online or via WhatsApp. Let us know your pet's age and any concerns." },
+      { step: "02", title: "Full Physical Exam", desc: "Head-to-tail examination covering eyes, ears, skin, teeth, joints, heart, and lungs." },
+      { step: "03", title: "Diagnostics if Indicated", desc: "Blood panel, urinalysis, or other testing recommended based on age and findings." },
+      { step: "04", title: "Health Plan & Follow-Up", desc: "A written summary of your pet's health status and a personalised care plan for the year ahead." },
+    ],
+    faqs: [
+      { q: "How often does my pet need a wellness checkup?", a: "Healthy adult pets (1–7 years) should have a checkup once a year. Puppies and kittens need more frequent visits in their first year. Senior pets (7+ years) benefit from bi-annual exams as age-related changes can happen quickly." },
+      { q: "What does a wellness checkup include?", a: "A full physical examination, weight check, dental evaluation, review of vaccination and parasite prevention status, and a discussion of nutrition, behaviour, and any concerns you have. Blood panels and urinalysis may be recommended based on your pet's age." },
+      { q: "At what age is my pet considered 'senior'?", a: "For most dogs, the senior life stage begins around 7 years, though giant breeds age faster and may be considered senior from 5–6 years. Cats are generally considered senior from 10–11 years, though age-related health monitoring is recommended from 7 years." },
+      { q: "Does my healthy-seeming pet really need an annual exam?", a: "Yes. Pets are instinctively good at masking pain and illness. Many conditions — kidney disease, heart disease, dental disease, early tumours — show no outward signs until they are advanced. Annual exams provide the earliest possible detection." },
+      { q: "Can I combine a wellness checkup with vaccinations?", a: "Absolutely. We often combine the annual wellness exam with booster vaccinations and parasite prevention updates — keeping your pet's entire health profile current in a single visit." },
+    ],
+    img: "https://images.unsplash.com/photo-1628009368231-7bb7cfcb0def?q=80&w=2070&auto=format&fit=crop",
+  },
 ];
 
 export function getServiceBySlug(slug: string): ServiceData | undefined {

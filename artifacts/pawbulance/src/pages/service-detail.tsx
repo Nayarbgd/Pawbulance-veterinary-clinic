@@ -219,7 +219,7 @@ export default function ServiceDetail() {
         <div className="container mx-auto px-4 text-center">
           <p className="text-[#64748B] mb-6">Explore our other veterinary services</p>
           <div className="flex flex-wrap justify-center gap-3">
-            {["general-consultation","vaccinations","grooming","microchipping","preventive-care","diagnostics","dental-care","health-certificates"].filter(s => s !== params.slug).map((s) => (
+            {["general-consultation","vaccinations","wellness-checkups","grooming","microchipping","preventive-care","diagnostics","dental-care","health-certificates"].filter(s => s !== params.slug).map((s) => (
               <Link key={s} href={`/services/${s}`}
                 className="bg-[#F7FBFF] border border-blue-100 text-[#3BA9F5] rounded-full px-5 py-2 text-sm font-semibold hover:bg-blue-50 transition-all capitalize"
               >
