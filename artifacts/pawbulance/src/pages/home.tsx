@@ -166,21 +166,26 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { title: "General Consultation", desc: "Comprehensive health assessments for your pet's ongoing wellness.", img: "/general-consultation.png" },
-              { title: "Vaccinations", desc: "Essential immunizations to protect against common and severe diseases.", img: "https://images.unsplash.com/photo-1576201836106-db1758fd1c97?q=80&w=2070&auto=format&fit=crop" },
-              { title: "Grooming", desc: "Premium spa and grooming services for a clean, happy pet.", img: "https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?q=80&w=2071&auto=format&fit=crop" },
+              { slug: "general-consultation", title: "General Consultation", desc: "Comprehensive health assessments for your pet's ongoing wellness.", img: "/general-consultation.png" },
+              { slug: "vaccinations", title: "Vaccinations", desc: "Essential immunizations to protect against common and severe diseases.", img: "https://images.unsplash.com/photo-1576201836106-db1758fd1c97?q=80&w=2070&auto=format&fit=crop" },
+              { slug: "grooming", title: "Grooming", desc: "Premium spa and grooming services for a clean, happy pet.", img: "https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?q=80&w=2071&auto=format&fit=crop" },
             ].map((service, idx) => (
               <motion.div key={idx} {...fadeUp} transition={{ duration: 0.4, delay: idx * 0.1 }}
-                className="group relative bg-white rounded-3xl overflow-hidden border border-slate-100 shadow-sm hover:shadow-lg hover:border-blue-200 transition-all duration-300"
+                className="group relative bg-white rounded-3xl overflow-hidden border border-slate-100 shadow-sm hover:shadow-lg hover:border-blue-200 transition-all duration-300 cursor-pointer"
                 whileHover={{ y: -4 }}
               >
-                <div className="aspect-[4/3] overflow-hidden bg-slate-50">
-                  <img src={service.img} alt={service.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                </div>
-                <div className="p-8">
-                  <h3 className="text-xl font-bold mb-3 text-[#1F2937]">{service.title}</h3>
-                  <p className="text-sm text-[#64748B] leading-relaxed">{service.desc}</p>
-                </div>
+                <Link href={`/services/${service.slug}`} className="block">
+                  <div className="aspect-[4/3] overflow-hidden bg-slate-50">
+                    <img src={service.img} alt={service.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  </div>
+                  <div className="p-8">
+                    <h3 className="text-xl font-bold mb-3 text-[#1F2937] group-hover:text-[#3BA9F5] transition-colors">{service.title}</h3>
+                    <p className="text-sm text-[#64748B] leading-relaxed">{service.desc}</p>
+                    <span className="inline-flex items-center gap-1 text-sm font-semibold text-[#3BA9F5] mt-4">
+                      Learn more <ArrowRight className="w-3.5 h-3.5" />
+                    </span>
+                  </div>
+                </Link>
               </motion.div>
             ))}
           </div>
@@ -188,15 +193,15 @@ export default function Home() {
           {/* Full services icon grid */}
           <div className="mt-12 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
             {[
-              { icon: Syringe, label: "Microchipping" },
-              { icon: Shield, label: "Preventive Care" },
-              { icon: Stethoscope, label: "Diagnostics" },
-              { icon: Scissors, label: "Dental Care" },
-              { icon: Award, label: "Health Certs" },
-              { icon: Car, label: "Pet Taxi" },
+              { icon: Syringe, label: "Microchipping", slug: "microchipping" },
+              { icon: Shield, label: "Preventive Care", slug: "preventive-care" },
+              { icon: Stethoscope, label: "Diagnostics", slug: "diagnostics" },
+              { icon: Scissors, label: "Dental Care", slug: "dental-care" },
+              { icon: Award, label: "Health Certs", slug: "health-certificates" },
+              { icon: Car, label: "Pet Taxi", slug: null },
             ].map((s, i) => (
               <motion.div key={i} {...fadeUp} transition={{ duration: 0.3, delay: i * 0.06 }}>
-                <Link href="/services" className="flex flex-col items-center gap-3 bg-white rounded-2xl p-4 border border-slate-100 shadow-sm hover:border-blue-200 hover:shadow-md transition-all group">
+                <Link href={s.slug ? `/services/${s.slug}` : "/pet-taxi"} className="flex flex-col items-center gap-3 bg-white rounded-2xl p-4 border border-slate-100 shadow-sm hover:border-blue-200 hover:shadow-md transition-all group">
                   <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center group-hover:bg-[#3BA9F5] transition-colors">
                     <s.icon className="w-5 h-5 text-[#3BA9F5] group-hover:text-white transition-colors" />
                   </div>

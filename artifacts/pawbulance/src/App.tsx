@@ -6,6 +6,7 @@ import NotFound from "@/pages/not-found";
 
 import Home from "@/pages/home";
 import Services from "@/pages/services";
+import ServiceDetail from "@/pages/service-detail";
 import PetTaxi from "@/pages/pet-taxi";
 import About from "@/pages/about";
 import Reviews from "@/pages/reviews";
@@ -20,6 +21,7 @@ function Router() {
     <Switch>
       <Route path="/" component={Home} />
       <Route path="/services" component={Services} />
+      <Route path="/services/:slug" component={ServiceDetail} />
       <Route path="/pet-taxi" component={PetTaxi} />
       <Route path="/about" component={About} />
       <Route path="/reviews" component={Reviews} />
