@@ -1,0 +1,135 @@
+IMPORTANT: I DO NOT want the uploaded image to appear as a card, panel, container, framed photo, floating image, or right-side illustration.
+
+The uploaded image IS the Hero Background.
+
+========================
+REQUIRED LAYOUT
+========================
+
+Use the uploaded image as:
+
+background-image of the entire Hero Section.
+
+Structure:
+
+Hero Section
+    └── Full-width background image
+            └── Soft overlay
+                    └── Existing text and buttons on top
+
+The image must cover:
+
+100% width of the hero section.
+100% height of the hero section.
+
+Desktop:
+min-height: 90vh
+
+Use:
+
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+
+or an absolutely positioned image:
+
+position: absolute;
+inset: 0;
+width: 100%;
+height: 100%;
+object-fit: cover;
+z-index: 0;
+
+Then place:
+
+headline,
+subheadline,
+buttons,
+ratings,
+badges
+
+inside:
+
+position: relative;
+z-index: 2;
+
+========================
+TEXT POSITION
+========================
+
+Keep all existing text on the LEFT SIDE.
+
+Do not move the copy.
+
+Do not resize the copy.
+
+Do not modify buttons.
+
+Only place the text on top of the hero background.
+
+========================
+IMAGE POSITION
+========================
+
+The uploaded image already contains intentional negative space on the left.
+
+Do NOT crop it.
+
+Do NOT zoom it.
+
+Do NOT place it inside a rounded rectangle.
+
+Do NOT add white frames.
+
+Do NOT add borders.
+
+Do NOT create a card.
+
+Do NOT place the image only on the right side.
+
+The image itself is already designed to leave room for the text.
+
+Show the entire image.
+
+Scale:
+100%
+
+Maximum crop:
+5%
+
+========================
+OVERLAY
+========================
+
+Apply only a subtle overlay:
+
+background:
+linear-gradient(
+90deg,
+rgba(255,255,255,0.20),
+rgba(255,255,255,0.05)
+);
+
+The image should remain clearly visible.
+
+========================
+VISUAL GOAL
+========================
+
+The final result should look similar to:
+
+Apple hero sections,
+modern healthcare websites,
+premium veterinary landing pages.
+
+The user should perceive:
+
+one single hero image with text placed on top of it.
+
+NOT:
+
+text area + image card.
+
+This is a full-bleed Hero Background implementation.
+
+Replace the current hero structure completely.

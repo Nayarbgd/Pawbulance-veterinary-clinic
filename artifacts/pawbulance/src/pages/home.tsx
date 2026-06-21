@@ -23,24 +23,34 @@ export default function Home() {
     <MainLayout>
 
       {/* ── HERO ── */}
-      <section className="relative min-h-[90vh] flex items-center pt-20 overflow-hidden bg-gradient-to-b from-[#FFFFFF] via-[#F7FBFF] to-[#EAF7FF]">
-        <div className="absolute top-[-10%] right-[-5%] w-[600px] h-[600px] rounded-full bg-[#3BA9F5] opacity-[0.06] blur-3xl pointer-events-none" />
-        <div className="absolute bottom-[-10%] left-[-10%] w-[500px] h-[500px] rounded-full bg-[#6CC7FF] opacity-[0.08] blur-3xl pointer-events-none" />
-        <div className="absolute top-[20%] left-[10%] opacity-[0.04] pointer-events-none"><Heart className="w-12 h-12 text-[#3BA9F5]" /></div>
-        <div className="absolute bottom-[30%] right-[15%] opacity-[0.05] pointer-events-none"><Heart className="w-16 h-16 text-[#3BA9F5]" /></div>
+      <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+        {/* Full-bleed background image */}
+        <img
+          src="/hero-vet.png"
+          alt="Pawbulance veterinary clinic Dubai"
+          className="absolute inset-0 w-full h-full object-cover object-center z-0"
+          style={{ objectPosition: "center center" }}
+        />
+        {/* Subtle overlay — left-weighted so text stays readable */}
+        <div
+          className="absolute inset-0 z-10"
+          style={{ background: "linear-gradient(90deg, rgba(255,255,255,0.72) 0%, rgba(255,255,255,0.30) 55%, rgba(255,255,255,0.05) 100%)" }}
+        />
 
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="max-w-2xl">
+        {/* Content */}
+        <div className="relative z-20 w-full pt-24 pb-16">
+          <div className="container mx-auto px-4">
+            <div className="max-w-xl">
               <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white shadow-sm border border-slate-100 text-slate-700 mb-8">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/90 shadow-sm border border-slate-100 text-slate-700 mb-8">
                   <Star className="w-4 h-4 fill-[#3BA9F5] text-[#3BA9F5]" />
                   <span className="text-sm font-medium">4.8★ Top Rated Vet Clinic in JBR</span>
                 </div>
                 <h1 className="text-5xl md:text-7xl font-serif font-extrabold leading-tight mb-6 text-[#1F2937]">
-                  Premium care for your <span className="text-[#3BA9F5]">best friend</span>
+                  Premium care<br />for your{" "}
+                  <span className="text-[#3BA9F5]">best friend</span>
                 </h1>
-                <p className="text-lg md:text-xl text-[#64748B] mb-8 leading-relaxed max-w-xl">
+                <p className="text-lg md:text-xl text-[#4B5563] mb-8 leading-relaxed">
                   Step into a sanctuary where pets are treated as family. A modern veterinary clinic in the heart of JBR, bringing warmth, expertise, and love to veterinary medicine.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
@@ -49,29 +59,18 @@ export default function Home() {
                       Book Appointment
                     </Button>
                   </AppointmentDialog>
-                  <Button size="lg" variant="outline" className="h-14 px-8 text-lg border-2 border-[#3BA9F5] text-[#3BA9F5] rounded-full hover:bg-blue-50 transition-all font-semibold" asChild>
+                  <Button size="lg" variant="outline" className="h-14 px-8 text-lg border-2 border-[#3BA9F5] text-[#3BA9F5] bg-white/80 rounded-full hover:bg-blue-50 transition-all font-semibold" asChild>
                     <a href="https://wa.me/971547371109">WhatsApp Us</a>
                   </Button>
                 </div>
+                <div className="flex items-center gap-3 mt-8">
+                  <div className="flex gap-0.5">
+                    {[1,2,3,4,5].map(s => <Star key={s} className="w-4 h-4 fill-yellow-400 text-yellow-400" />)}
+                  </div>
+                  <span className="text-sm text-[#4B5563] font-medium">131+ happy clients · JBR, Dubai</span>
+                </div>
               </motion.div>
             </div>
-
-            <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5, delay: 0.1 }} className="hidden lg:block relative">
-              <div className="relative rounded-[2.5rem] overflow-hidden border-8 border-white shadow-2xl rotate-2">
-                <div className="aspect-[4/3] bg-gradient-to-tr from-blue-100 to-white flex items-center justify-center">
-                  <img src="/hero-vet.png" alt="Happy dog with vet" className="w-full h-full object-cover" />
-                </div>
-              </div>
-              <div className="absolute -bottom-6 -left-6 bg-white p-4 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-4 -rotate-3">
-                <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
-                  <Shield className="w-6 h-6 text-green-600" />
-                </div>
-                <div>
-                  <p className="font-bold text-[#1F2937]">Expert Care</p>
-                  <p className="text-sm text-[#64748B]">Trusted Professionals</p>
-                </div>
-              </div>
-            </motion.div>
           </div>
         </div>
       </section>
